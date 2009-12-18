@@ -98,6 +98,20 @@ class Regions {
 
     return $regions;
   }
+
+  public function getAllRegions() {
+    $statement = 'SELECT * FROM regions';
+    $query = $this->connection->execute($statement);
+
+    $regions = array();
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $regions[$row['id']] = array('name' => $row['name'], 
+                                   'file' => $row['file'],
+                                   'checked' => $row['selected']);
+    }
+
+    return $regions;
+  }
 }
 
 ?>

@@ -1,6 +1,5 @@
 
-$(document).ready(function() 
-{
+$(document).ready(function() {
   // Prevent normal submit
   $('#login').submit(function() {
     return false;
@@ -14,12 +13,11 @@ $(document).ready(function()
   {
     var feedback = $('#feedback');
     feedback.removeClass('err msg ok');
-    tryLogin('login', 'Kommuniker med serveren', 'Udfyld alle felter');
+    tryLogin($('#login'), 'Kommuniker med serveren', 'Udfyld alle felter');
   });
 });
 
-function tryLogin(formID, msg, errMsg)
-{
+function tryLogin(form, msg, errMsg) {
   // Disable login button
   $('#loginBtn').attr("disabled", "disabled")
 	
@@ -46,7 +44,7 @@ function tryLogin(formID, msg, errMsg)
   fbMsg.fadeIn('slow');
 	
   // Send ajax request
-  $.post('index.php', $('#login').serialize(), loginResponse, 'json');
+  $.post('index.php', form.serialize(), loginResponse, 'json');
 
   return true;
 }

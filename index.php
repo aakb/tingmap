@@ -29,14 +29,19 @@ function placeholder($conf) {
 }
 
 // Take action
-$action = Utils::getParam('action');
+$action = strtolower(Utils::getParam('action'));
 switch ($action) {
   
-  case 'loadPolygons':
+  case 'loadcoordinates':
     // Get select regions
     $regions = new Regions();
     $selected_regions = $regions->getAllSelectRegions();
 
+    foreach ($selected_regions as $key => $region) {
+      $coordinates = new kml($region['name'], $conf->getKmlPath() . $region[file]);
+      print_r($coordinates->getCoordinates());
+      echo '<br/><br/><br/><br/>';
+    }
 
     //echo json_encode(array('status' => 1, 'regions' => $regions));
     break;

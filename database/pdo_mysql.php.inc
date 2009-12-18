@@ -49,35 +49,19 @@ class PDOMysql {
     $this->dbh = null;
   }
 
-  public function execute($statement, $data, $msg) {
+  public function execute($statement, $data = null) {
     // Perpare statement
     $query = $this->dbh->prepare($statement);
 
     // Execute query and write log
-    $bool = null;
     if ($data != null) {
-      $bool = $query->execute($data);
+      $query->execute($data);
     }
     else {
-      $bool = $query->execute();
+      $query->execute();
     }
 
     // Log
-    if ($bool) {
-      if ($msg != null) {
-        Log::write($msg);
-      }
-    }
-    else {
-      $err = $this->dbh->errorInfo();
-      if ($msg != null) {
-        Log::write($msg . "-- Error: " . $err[2]);
-      }
-      else {
-        Log::write('Insert ' . "-- Error: " . $err[2]);
-      }
-      throw new Exception('Database error: ' . $err[2]);
-    }
     return $query;
   }
 

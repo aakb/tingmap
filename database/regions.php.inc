@@ -9,6 +9,17 @@ class Regions {
   private $name = null;
   private $file = null;
   private $selected = null;
+  
+  private $connection = null;
+
+  // Construct and Destruct
+  public function __construct() {
+    $this->connection = PDOMysql::getInstance();
+  }
+
+  public function __destruct() {
+    $this->connection = null;
+  }
 
   public function id($val = null) {
     if ($val != null) {
@@ -48,11 +59,18 @@ class Regions {
 
   public function load() {
     if ($this->id != null) {
-      $statment = 'SELECT * FROM regions WHERE id = '. $this->id;
-      
+      $statement = 'SELECT * FROM regions WHERE id = :id';
+      $query = $this->connection->execute($statement, array('id' => $this->id));
+
+      // Fetch and insert data into this ovject
+      $row = $query->fetch(PDO::FETCH_ASSOC);
+
+      $this->name = $row['name'];
+      $this->file = $row['file'];
+      $this->selected = $row['selected'];
     }
     else {
-      throw new Exception('Can\'t load unknown kommune! (line: '. __LINE__ .')');
+      throw new Exception('Can\'t load unknown region! (line: '. __LINE__ .')');
     }
   }
 
@@ -61,7 +79,15 @@ class Regions {
   }
 
   public function getAllSelectRegions() {
-    
+    $statement = 'SELECT * FROM regions WHERE selected = 1';
+    $query = $this->connection->execute($statement);
+
+    $regions = array();
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $regions[$row['id']] = array('name' => $row['name'], 'file' => $row['file']);
+    }
+
+    return $regions;
   }
 }
 

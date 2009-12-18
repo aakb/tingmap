@@ -28,7 +28,7 @@ class Conf {
   // File paths
   private $kml_path = '/kml/';
   public function getKmlPath() {
-    return $this->kml_path;
+    return dirname(__FILE__) . '/..' . $this->kml_path;
   }
   // End file paths
 

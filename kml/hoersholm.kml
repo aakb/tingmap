@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- *** KML lavet fra DAGI-datasæt lagt på GeoCommons http://finder.geocommons.com/overlays/13236 *** -->
+<!-- *** Lavet af Søren Johannessen http://www.microformats.dk/ *** -->
+<!-- *** Udgivet under en  CC licens (Attribution-Share Alike 3.0 Unported) http://creativecommons.org/licenses/by-sa/3.0/ *** -->
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<Document>
+	<name>Hørsholm Kommune</name>
+	<StyleMap id="default">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#default_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#default_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	
+          <Style id="default_normal">
+		<IconStyle>
+             <scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.1</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+                <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>eeff6600</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+        <Style id="default_highlight">
+		<IconStyle>
+                <scale>1.7</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.7</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+              <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>ddffffff</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+
+
+<Placemark id="hoersholm">
+	<name>Hørsholm Kommune</name>
+		<styleUrl>#default</styleUrl>
+	<description><![CDATA[]]></description>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+12.5445956007076,55.8860936658129,0 12.5471240634132,55.8861016837685,0 12.5471154772469,55.88618285499899,0 12.5475209368778,55.8862430912605,0 12.5474910576973,55.8860910975411,0 12.5480352087615,55.88609338209071,0 12.5485948874696,55.8859153858988,0 12.5484917039474,55.8851361017015,0 12.5464804433218,55.8851851302139,0 12.5442781175028,55.884367457262,0 12.5455443011786,55.882991222942,0 12.5486842317042,55.88356602239799,0 12.5482857096825,55.88305601445929,0 12.5454996924135,55.8823271377509,0 12.5456608570774,55.881639136385,0 12.5493326333531,55.8764799733694,0 12.5527290734101,55.873567532632,0 12.5549881070508,55.87081376380969,0 12.5596998040347,55.8662086264766,0 12.562207024865,55.8626832370347,0 12.5444166954485,55.86203754447539,0 12.5404748880747,55.85702597138949,0 12.5368117770182,55.85875888159361,0 12.538369625725,55.8625264462155,0 12.5118733305124,55.8660285839372,0 12.4982424114513,55.8646998435407,0 12.4972610891189,55.87494192891101,0 12.4923505476124,55.873867668739,0 12.4927309491942,55.87721062696401,0 12.4814037907302,55.8750322679924,0 12.4684212460873,55.87812349775501,0 12.4705004107397,55.87454026837541,0 12.4604485010559,55.86744177803391,0 12.4417023032462,55.86520767326211,0 12.4267392882974,55.867414849109,0 12.3981194946354,55.8774968421439,0 12.4034432373245,55.87948048381129,0 12.4023959035262,55.8868820831038,0 12.3975618604361,55.8870336997774,0 12.4085379499351,55.889786941067,0 12.4125156733539,55.8942710547712,0 12.4230243425071,55.8889620411546,0 12.4372690275607,55.8966207965754,0 12.4504637673705,55.8938417347124,0 12.4523916283382,55.896628843676,0 12.4631992969833,55.8950842334173,0 12.4635688253175,55.8990479380832,0 12.4732785399923,55.9011478320706,0 12.4792184775313,55.9020679075138,0 12.485235313428,55.9040195173136,0 12.4862389933174,55.9023636558377,0 12.4942499935987,55.90246003760979,0 12.5110584038236,55.90550602728391,0 12.5151191364945,55.9116390601859,0 12.5228220449275,55.913432794994,0 12.5235396467154,55.9128727604024,0 12.5258249416442,55.9103616226505,0 12.5276191842487,55.9066776526095,0 12.5327951412192,55.9005857707767,0 12.5358175935472,55.8973968718182,0 12.5387256296599,55.8924308706034,0 12.5428509948067,55.8873128332192,0 12.5445956007076,55.8860936658129,0 </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+			<Point>
+				<coordinates>12.4798844426506,55.8852293831917,0</coordinates>
+			</Point>
+		</MultiGeometry>
+	</Placemark>
+		
+</Document>
+</kml>

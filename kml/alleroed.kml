@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- *** KML lavet fra DAGI-datasæt lagt på GeoCommons http://finder.geocommons.com/overlays/13236 *** -->
+<!-- *** Lavet af Søren Johannessen http://www.microformats.dk/ *** -->
+<!-- *** Udgivet under en  CC licens (Attribution-Share Alike 3.0 Unported) http://creativecommons.org/licenses/by-sa/3.0/ *** -->
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<Document>
+	<name>Allerød Kommune</name>
+	<StyleMap id="default">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#default_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#default_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	
+          <Style id="default_normal">
+		<IconStyle>
+             <scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.1</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+                <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>eeff6600</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>998b0000</color>
+<outline>1</outline>
+                 <fill>1</fill> 
+		</PolyStyle>
+	</Style>
+	
+
+        <Style id="default_highlight">
+		<IconStyle>
+                <scale>1.7</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.7</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+              <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>ddffffff</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+		<Placemark id="alleroed">
+	<name>Allerød Kommune</name>
+		<styleUrl>#default</styleUrl>
+	<description><![CDATA[]]></description>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+12.3261321601102,55.8124387128441,0 12.2960364296325,55.82000174946341,0 12.2615959135882,55.8162545778721,0 12.2382554777917,55.8188048407504,0 12.2074439080241,55.8278211427973,0 12.2100372036158,55.83234753361621,0 12.2158536137042,55.8348836249958,0 12.2180030828658,55.8384684902675,0 12.2254871055439,55.8389376268793,0 12.2287850104372,55.84286977730441,0 12.2298301648557,55.8425636169588,0 12.2312985604111,55.8458155348698,0 12.2343241246811,55.853377863845,0 12.2626626741678,55.854148486973,0 12.2618773058966,55.8581251673047,0 12.2785538859551,55.8648111491689,0 12.2796484033633,55.8766495425593,0 12.274735013217,55.8823006815338,0 12.2997949176531,55.8846966944576,0 12.301940022186,55.8862214796189,0 12.3087408121558,55.8811747616846,0 12.3156071768128,55.8806661770591,0 12.3184501179131,55.8830529553143,0 12.3113596477677,55.88750564660451,0 12.3106483060901,55.89229884501759,0 12.3216288009961,55.8906721930659,0 12.3545471288795,55.89614432960659,0 12.3608763601228,55.8921774272309,0 12.3679221345612,55.89612050662641,0 12.3731154174353,55.8991699693537,0 12.3817406654466,55.896595516941,0 12.3890002081896,55.8967193953889,0 12.3975618604361,55.8870336997774,0 12.4023959035262,55.8868820831038,0 12.4034432373245,55.87948048381129,0 12.3981194946354,55.8774968421439,0 12.4267392882974,55.867414849109,0 12.4169173774052,55.8624553943493,0 12.4128423326898,55.8500889899283,0 12.4087402857173,55.8474155829123,0 12.4020417499891,55.85049627006769,0 12.3996703844419,55.8465878442972,0 12.4018565288198,55.8423465308974,0 12.3965801625714,55.84194399976791,0 12.3949344415403,55.8413960601849,0 12.3927831265306,55.839630288738,0 12.3684375066093,55.8515025913414,0 12.3610850200891,55.84983373224591,0 12.3548794236872,55.8379195148101,0 12.3434713909817,55.8314063246325,0 12.3143780131102,55.8244173599315,0 12.3261321601102,55.8124387128441,0 </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+			<Point>
+				<coordinates>12.3170915981608,55.8558043410989,0</coordinates>
+			</Point>
+		</MultiGeometry>
+	</Placemark>
+
+
+
+
+		
+</Document>
+</kml>

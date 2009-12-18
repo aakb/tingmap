@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- *** KML lavet fra DAGI-datasæt lagt på GeoCommons http://finder.geocommons.com/overlays/13236 *** -->
+<!-- *** Lavet af Søren Johannessen http://www.microformats.dk/ *** -->
+<!-- *** Udgivet under en  CC licens (Attribution-Share Alike 3.0 Unported) http://creativecommons.org/licenses/by-sa/3.0/ *** -->
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<Document>
+	<name>Hvidovre Kommune</name>
+	<StyleMap id="default">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#default_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#default_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	
+          <Style id="default_normal">
+		<IconStyle>
+             <scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.1</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+                <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>eeff6600</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+        <Style id="default_highlight">
+		<IconStyle>
+                <scale>1.7</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.7</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+              <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>ddffffff</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+
+<Placemark id="hvidovre">
+	<name>Hvidovre Kommune</name>
+		<styleUrl>#default</styleUrl>
+		<description><![CDATA[]]></description>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+12.4813235133915,55.6017766112431,0 12.4815236364457,55.6009886598462,0 12.4608642353282,55.6024552458878,0 12.4569564292911,55.60352767148281,0 12.4481870879784,55.6042243936639,0 12.4475872206246,55.60462790791641,0 12.4456026016356,55.60934129364581,0 12.4453788889826,55.6098690867557,0 12.4447695274902,55.6114327431765,0 12.4441966992779,55.6114218736783,0 12.4443012217506,55.61152683210071,0 12.4443010113758,55.61188649402619,0 12.4445743373174,55.6119237667937,0 12.4443927325526,55.6122076058713,0 12.4445163569952,55.61216816471141,0 12.4435098814327,55.61518160034839,0 12.4428023476343,55.6150845954171,0 12.4423981717911,55.6151858656772,0 12.4385223920762,55.6209952289133,0 12.4423353228436,55.6218952062173,0 12.4289945014364,55.63305885733319,0 12.4269718844728,55.6421067485218,0 12.4379530616016,55.6455036636187,0 12.4597535102053,55.6482350702588,0 12.4548588551349,55.6569239436769,0 12.4557612611837,55.6646311073439,0 12.4531463177297,55.66456092230241,0 12.4529320212153,55.6648366991183,0 12.4706482352935,55.6655053619876,0 12.4709687683553,55.6655322538524,0 12.4738885828174,55.66616887487911,0 12.4742059411759,55.6661598825274,0 12.478268726401,55.6655141940884,0 12.4783784533848,55.6638836253785,0 12.4778209178043,55.6570659248256,0 12.4851463576514,55.6525239832372,0 12.4860550082249,55.65201260458759,0 12.4904754807304,55.64647391413971,0 12.4943080600875,55.6454116101561,0 12.5003211113369,55.6417063524719,0 12.5006023851959,55.6414735299511,0 12.5065307063345,55.6359450744227,0 12.5041773980009,55.6314896175048,0 12.5035789976884,55.629061015336,0 12.5022668876281,55.6270034834296,0 12.5018917301053,55.6267174829503,0 12.5019184674721,55.6264829376169,0 12.4982292962098,55.62592293623871,0 12.4973249318938,55.62486976263159,0 12.4963448192351,55.62314437670251,0 12.4943070434387,55.6206039440522,0 12.494206905852,55.62019318781441,0 12.4939109940412,55.6197250733264,0 12.4957995356757,55.6188080150434,0 12.4976292528305,55.617766723346,0 12.4979999075798,55.61550824648651,0 12.4980386548986,55.61540823281149,0 12.503747049473,55.6147505806263,0 12.5028032594529,55.6128983229621,0 12.5019595930348,55.6112769786499,0 12.4985346881009,55.6104576885419,0 12.4965489974293,55.61010076502,0 12.4953308233621,55.60498335118649,0 12.491439514795,55.6006974412932,0 12.4901767956129,55.6004277123964,0 12.4829152978992,55.600922124179,0 12.4822756112381,55.6017675324144,0 12.4821488770095,55.6017711350667,0 12.4820182315942,55.6019097218563,0 12.4813235133915,55.6017766112431,0 </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+			<Point>
+				<coordinates>12.4667512954037,55.63329829363771,0</coordinates>
+			</Point>
+		</MultiGeometry>
+	</Placemark>
+
+		
+</Document>
+</kml>

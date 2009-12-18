@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- *** KML lavet fra DAGI-datasæt lagt på GeoCommons http://finder.geocommons.com/overlays/13236 *** -->
+<!-- *** Lavet af Søren Johannessen http://www.microformats.dk/ *** -->
+<!-- *** Udgivet under en  CC licens (Attribution-Share Alike 3.0 Unported) http://creativecommons.org/licenses/by-sa/3.0/ *** -->
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<Document>
+	<name>Hillerød Kommune</name>
+	<StyleMap id="default">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#default_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#default_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	
+          <Style id="default_normal">
+		<IconStyle>
+             <scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.1</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+                <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>eeff6600</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+        <Style id="default_highlight">
+		<IconStyle>
+                <scale>1.7</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.7</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+              <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>ddffffff</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+<Placemark id="hilleroed">
+	<name>Hillerød Kommune</name>
+		<styleUrl>#default</styleUrl>
+	<description><![CDATA[]]></description>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+12.3775846517127,56.0016329064932,0 12.3683452503869,55.9819443404576,0 12.3674799876298,55.9712599748733,0 12.3579123181583,55.9681587052912,0 12.3637302490838,55.9539293247727,0 12.3460895570651,55.9489526800858,0 12.356137322587,55.9419360708792,0 12.3670568204126,55.94038812892631,0 12.3743972826939,55.9288316609646,0 12.3703122837045,55.9273432327827,0 12.3950428543487,55.911109116109,0 12.3731154174353,55.8991699693537,0 12.3679221345612,55.89612050662641,0 12.3608763601228,55.8921774272309,0 12.3545471288795,55.89614432960659,0 12.3216288009961,55.8906721930659,0 12.3106483060901,55.89229884501759,0 12.3113596477677,55.88750564660451,0 12.3184501179131,55.8830529553143,0 12.3156071768128,55.8806661770591,0 12.3087408121558,55.8811747616846,0 12.301940022186,55.8862214796189,0 12.2997949176531,55.8846966944576,0 12.274735013217,55.8823006815338,0 12.2796484033633,55.8766495425593,0 12.2785538859551,55.8648111491689,0 12.2618773058966,55.8581251673047,0 12.2626626741678,55.854148486973,0 12.2343241246811,55.853377863845,0 12.2312985604111,55.8458155348698,0 12.2269093104058,55.8462634747713,0 12.2269067817064,55.8450768026916,0 12.2160007970092,55.84749332174351,0 12.2077621559847,55.8466117401372,0 12.2004124064305,55.867993538816,0 12.1767397248101,55.8794226133836,0 12.1238708025882,55.8669409915301,0 12.1200739156095,55.86744193469031,0 12.1101682980611,55.8815195261698,0 12.0940182076102,55.8863858489438,0 12.0965858942194,55.8921107864285,0 12.088196529542,55.8948478419382,0 12.1167199295375,55.9053750750409,0 12.115194453198,55.9142868523587,0 12.1068797185427,55.921599139095,0 12.0891045256968,55.92215445027059,0 12.0818349238267,55.9300050760708,0 12.0855329198666,55.9491148413221,0 12.1259382086285,55.9725394154306,0 12.1703030402452,55.9684925718161,0 12.1974900125118,55.9723746870461,0 12.2053924195309,55.9783635368136,0 12.2184258553252,55.9802622251498,0 12.2214906587711,55.9910783257494,0 12.2344083190527,55.99325711841241,0 12.2494606724513,55.9885545947735,0 12.2510517565811,55.9918390513123,0 12.2734218119585,55.9879741020299,0 12.2725639844252,55.99129639135251,0 12.2875337584208,55.9962561125301,0 12.2822219646926,56.0026641129919,0 12.3775846517127,56.0016329064932,0 </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+			<Point>
+				<coordinates>12.2384388890877,55.9238704578418,0</coordinates>
+			</Point>
+		</MultiGeometry>
+	</Placemark>
+
+
+		
+</Document>
+</kml>

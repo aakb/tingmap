@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- *** KML lavet fra DAGI-datasæt lagt på GeoCommons http://finder.geocommons.com/overlays/13236 *** -->
+<!-- *** Lavet af Søren Johannessen http://www.microformats.dk/ *** -->
+<!-- *** Udgivet under en  CC licens (Attribution-Share Alike 3.0 Unported) http://creativecommons.org/licenses/by-sa/3.0/ *** -->
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<Document>
+	<name>Høje Taastrup Kommune</name>
+	<StyleMap id="default">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#default_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#default_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	
+          <Style id="default_normal">
+		<IconStyle>
+             <scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.1</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+                <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>eeff6600</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+        <Style id="default_highlight">
+		<IconStyle>
+                <scale>1.7</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.7</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+              <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>ddffffff</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+
+	<Placemark id="hoejetaastrup">
+	<name>Høje Taastrup Kommune</name>
+		<styleUrl>#default</styleUrl>
+	<description><![CDATA[]]></description>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+12.1582070655413,55.6492716222099,0 12.1574259435083,55.6533913713795,0 12.1638169631672,55.6529838836043,0 12.1628128743078,55.6574870233564,0 12.1572933457364,55.65865417711851,0 12.1585008557514,55.66574348395751,0 12.1514489709618,55.6666621203765,0 12.1504474949343,55.6710212142366,0 12.1645591690836,55.67359776126671,0 12.1687167508977,55.6817256440726,0 12.1812901946532,55.6825419663541,0 12.1854767400246,55.688232165653,0 12.2120360426525,55.6872249091673,0 12.250750163529,55.7084119767134,0 12.2522199919215,55.70540610637841,0 12.2890466580489,55.6985623864196,0 12.3110020444442,55.69369212124369,0 12.3215668855083,55.6795694832899,0 12.3155146252177,55.67273832672961,0 12.3220457209665,55.6597045362833,0 12.3289411812706,55.6508232435703,0 12.3363919117994,55.6488764418131,0 12.3413357793386,55.64196255991449,0 12.3466214249907,55.6375835822178,0 12.3083557302695,55.6373277019823,0 12.2892912607057,55.6359257345207,0 12.2877083119884,55.6341070974743,0 12.2869938788558,55.63430607603659,0 12.285744093607,55.6343755493067,0 12.2833363019518,55.63523126596721,0 12.281756833908,55.6345902622355,0 12.2451956740805,55.6333699707365,0 12.2337900362127,55.6351728596345,0 12.2124516898451,55.6352574487607,0 12.2163227593904,55.627612800692,0 12.2093819750619,55.6179410348954,0 12.2152220441902,55.6176710718389,0 12.2095254478371,55.6045412479936,0 12.1597035833838,55.6127947873289,0 12.1668619785032,55.634187144189,0 12.1571764607405,55.6339065549641,0 12.1582070655413,55.6492716222099,0 </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+			<Point>
+				<coordinates>12.2485344599625,55.6564766123535,0</coordinates>
+			</Point>
+		</MultiGeometry>
+	</Placemark>
+
+		
+</Document>
+</kml>

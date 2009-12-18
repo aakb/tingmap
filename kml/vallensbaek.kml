@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- *** KML lavet fra DAGI-datasæt lagt på GeoCommons http://finder.geocommons.com/overlays/13236 *** -->
+<!-- *** Lavet af Søren Johannessen http://www.microformats.dk/ *** -->
+<!-- *** Udgivet under en  CC licens (Attribution-Share Alike 3.0 Unported) http://creativecommons.org/licenses/by-sa/3.0/ *** -->
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<Document>
+	<name>Vallensbæk Kommune</name>
+	<StyleMap id="default">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#default_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#default_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	
+          <Style id="default_normal">
+		<IconStyle>
+             <scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.1</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+                <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>eeff6600</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+        <Style id="default_highlight">
+		<IconStyle>
+                <scale>1.7</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<LabelStyle>
+			<scale>1.7</scale>
+                 <color>ff00ffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+              <text><![CDATA[<h1>$[name]</h1> $[description]]]></text>	
+			
+			<bgColor>ffffffff</bgColor>
+		</BalloonStyle>
+		<LineStyle>
+			<color>ddffffff</color>
+			<width>6</width>
+		</LineStyle>
+		<PolyStyle>
+<outline>1</outline>
+                 <fill>1</fill> 
+			<color>998b0000</color>
+		</PolyStyle>
+	</Style>
+	
+
+
+<Placemark id="vallensbaek">
+	<name>Vallensbæk Kommune</name>
+		<styleUrl>#default</styleUrl>
+	<description><![CDATA[]]></description>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+12.4003236995192,55.6112626958165,0 12.400904228757,55.6137461509042,0 12.4044930625256,55.6140960461973,0 12.404906901886,55.6124571276006,0 12.4021506449762,55.61181439287729,0 12.4003236995192,55.6112626958165,0 </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+	<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+12.3976404399101,55.611094371685,0 12.3969683357989,55.6112209030018,0 12.3977684108982,55.61220573682121,0 12.3970967433302,55.6125210724645,0 12.397014855137,55.61267619394499,0 12.3963180119604,55.61288432826281,0 12.394852702909,55.61173809493401,0 12.3939885236715,55.6120317735983,0 12.3938734813965,55.6125384691097,0 12.3944063106772,55.6131890596103,0 12.3952838191984,55.613416500452,0 12.3959536382043,55.6132630686828,0 12.3962458846199,55.61333588936289,0 12.397475805878,55.61322986106821,0 12.3959025832591,55.6143254493038,0 12.3956123302962,55.61445937080389,0 12.3950626240228,55.6143487265681,0 12.3914381063077,55.6132173073572,0 12.3850567190426,55.6123507965773,0 12.3845909491815,55.61229173432639,0 12.3834012227619,55.61286406513899,0 12.3833331921168,55.6128119965723,0 12.3561944380578,55.62852854786999,0 12.3466214249907,55.6375835822178,0 12.3413357793386,55.64196255991449,0 12.3470433378143,55.64774092952149,0 12.3541868199829,55.6492809521585,0 12.3527732873322,55.6548760901027,0 12.3649423581121,55.65621502918031,0 12.3923991754696,55.62911414261,0 12.4033870985976,55.61837963603671,0 12.4038743334873,55.61648692914531,0 12.4034290051056,55.6164813171354,0 12.3993334151912,55.6157857980083,0 12.3987271260717,55.6153890198764,0 12.3986800577761,55.6146620348885,0 12.3997218461005,55.61385089448751,0 12.3987487673701,55.61252021304941,0 12.3990379150355,55.6116400409698,0 12.3976404399101,55.611094371685,0 </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+			<Point>
+				<coordinates>12.3873854,55.6244221,0</coordinates>
+			</Point>
+		</MultiGeometry>
+	</Placemark>
+
+		
+</Document>
+</kml>

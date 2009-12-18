@@ -23,7 +23,7 @@ class kml {
   }
 
   private function clean_coordinates($coordinat) {
-    return substr($coordinat, 0, -2);
+    return trim(substr($coordinat, 0, -2));
   }
 
   public function getCoordinates() {

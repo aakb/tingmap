@@ -33,17 +33,16 @@ $action = strtolower(Utils::getParam('action'));
 switch ($action) {
   
   case 'loadcoordinates':
-    // Get select regions
+    // Get select regions and coordinates
     $regions = new Regions();
     $selected_regions = $regions->getAllSelectRegions();
 
     foreach ($selected_regions as $key => $region) {
-      $coordinates = new kml($region['name'], $conf->getKmlPath() . $region[file]);
-      print_r($coordinates->getCoordinates());
-      echo '<br/><br/><br/><br/>';
+      $kml = new kml($region['name'], $conf->getKmlPath() . $region[file]);
+      $coordinates[basename($region['file'], '.kml')] = $kml->getCoordinates();
     }
 
-    //echo json_encode(array('status' => 1, 'regions' => $regions));
+    echo json_encode(array('status' => 1, 'coordinates' => $coordinates));
     break;
 
   default:

@@ -1,7 +1,7 @@
 <?php
 
-include_once dirname(__FILE__).'/conf.php.inc';
-include_once dirname(__FILE__).'/../database/pdo_mysql.php';
+include_once dirname(__FILE__).'/../utils/conf.php.inc';
+include_once dirname(__FILE__).'/pdo_mysql.php.inc';
 
 class Authorize {
 

@@ -18,14 +18,14 @@ CREATE TABLE `account` (
   `fullname` text NOT NULL,
   `last_login` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 #
-# Table structure for table 'kommuner'
+# Table structure for table 'regions'
 #
 
-# DROP TABLE IF EXISTS kommuner;
-CREATE TABLE `kommuner` (
+# DROP TABLE IF EXISTS regions;
+CREATE TABLE `regions` (
   `id` int(11) NOT NULL auto_increment,
   `name` text NOT NULL,
   `file` text NOT NULL,

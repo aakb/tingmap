@@ -1,6 +1,9 @@
 <?php
 
-class Kommune {
+include_once dirname(__FILE__).'/authorize.php.inc';
+
+
+class Regions {
   
   private $id = null;
   private $name = null;
@@ -45,7 +48,7 @@ class Kommune {
 
   public function load() {
     if ($this->id != null) {
-      $statment = 'SELECT * FROM kommune WHERE id = '. $this->id;
+      $statment = 'SELECT * FROM regions WHERE id = '. $this->id;
       
     }
     else {
@@ -54,6 +57,10 @@ class Kommune {
   }
 
   public function save() {
+    
+  }
+
+  public function getAllSelectRegions() {
     
   }
 }

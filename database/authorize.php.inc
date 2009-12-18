@@ -35,7 +35,7 @@ class Authorize {
     $query = null;
     $row = null;
     try {
-      $query = $this->connection->execute($statement, $data, null);
+      $query = $this->connection->execute($statement, $data);
       $row = $query->fetch(PDO::FETCH_ASSOC);
       $query->closeCursor();
     }
@@ -52,7 +52,7 @@ class Authorize {
       // Remove expired sessions from the database
       $statement = 'DELETE FROM session WHERE time < :intime';
       try {
-        $query = $this->connection->execute($statement, array('intime' => $time), null);
+        $query = $this->connection->execute($statement, array('intime' => $time));
       }
       catch (Exception $e) {
         throw new Exception('Error deleting expired session ids: ' . $e->getMessage());
@@ -65,7 +65,7 @@ class Authorize {
                   'sessid' => $sessid,
                   'expire' => $expire
                 );
-        $query = $this->connection->execute($statement, $data, null);
+        $query = $this->connection->execute($statement, $data);
       }
       catch (Exception $e) {
         throw new Exception('Error inserting new session into the database: ' . $e->getMessage());
@@ -78,7 +78,7 @@ class Authorize {
                   'lastLogin' => time(),
                   'username'  => $username
                 );
-        $query = $this->connection->execute($statement, $data, null);
+        $query = $this->connection->execute($statement, $data);
       }
       catch (Exception $e) {
         throw new Exception('Error updateing last login time in the database: ' . $e->getMessage());
@@ -101,7 +101,7 @@ class Authorize {
         // Close user, this is the third try
         $statement = 'UPDATE account SET active=0 WHERE username = :username';
         try {
-          $query = $this->connection->execute($statement, array('username' => $username), null);
+          $query = $this->connection->execute($statement, array('username' => $username));
         }
         catch (Exception $e) {
           throw new Exception('Error communicating with the database: ' . $e->getMessage());
@@ -139,7 +139,7 @@ class Authorize {
       $statement = 'SELECT id, time FROM session WHERE id = :sessid';
       $query = null;
       try {
-        $query = $this->connection->execute($statement, array('sessid' => $cookiedata), null);
+        $query = $this->connection->execute($statement, array('sessid' => $cookiedata));
         $row = $query->fetch(PDO::FETCH_ASSOC);
         $query->closeCursor();
       }
@@ -159,7 +159,7 @@ class Authorize {
           // Session expired, remove it from the database
           $statement = 'DELETE FROM session WHERE id = :sessid';
           try {
-            $query = $this->connection->execute($statement, array('sessid' => $cookiedata), null);
+            $query = $this->connection->execute($statement, array('sessid' => $cookiedata));
           }
           catch (Exception $e) {
             throw new Exception('Error removing expired session information: '. $e->getMessage());
@@ -175,7 +175,7 @@ class Authorize {
                       'expire' => $expire,
                       'sessid' => $cookiedata
                     );
-            $query = $this->connection->execute($statement, $data, null);
+            $query = $this->connection->execute($statement, $data);
           }
           catch (Exception $e) {
             throw new Exception('Error updateing session information in the database: '. $e->getMessage());
@@ -202,7 +202,7 @@ class Authorize {
       // Remove session from the database
       $statement = 'DELETE FROM session WHERE id = :sessid';
       try {
-        $query = $this->connection->execute($statement, array('sessid' => $cookiedata), null);
+        $query = $this->connection->execute($statement, array('sessid' => $cookiedata));
       }
       catch (Exception $e) {
         throw new Exception('Error removing expired session information: ' . mysql_error());

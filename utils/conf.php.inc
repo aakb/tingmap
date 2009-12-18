@@ -32,13 +32,6 @@ class Conf {
   }
   // End file paths
 
-  // Cookie settings
-  private $cookiename = 'ding_ting_map';
-  public function getCookieName() {
-    return $this->cookiename;
-  }
-  // End cookie settings
-
   // Google map settings
   private $gkey = 'ABQIAAAA9R5q17pqStwXYr5_fGwbshSFlJqI8A_ukbJ8NDNja8qdLzJOsxRNd-9GEiAZNWhR5c7j5G-fyr0e6g';
   public function gkey() {
@@ -66,7 +59,24 @@ class Conf {
     }
     return $this->webroot;
   }
+
+  private $admin_page = '/admin/admin.php';
+  public function getAdminPage() {
+    return $this->getWebroot() . $this->admin_page;
+  }
   // End define the system locations
+
+  // Cookie config
+  private $cookie_name   = 'tingmap';
+  private $cookie_expire = 30; // Mins
+  public function getCookieName() {
+    return $this->cookie_name;
+  }
+
+  public function getCookieExpire() {
+    return $this->cookie_expire * 60; // Secs
+  }
+  // End cookie config
 }
 
 $conf = new Conf();

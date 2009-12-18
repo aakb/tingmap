@@ -9,9 +9,7 @@ function initialize() {
   map.setMapType(G_SATELLITE_MAP);
 
   // Request coordinates
-  GEvent.addListener(map, "click", function() {
-    $.post('index.php', {'action' : 'loadCoordinates'}, tingmapResponse, 'json');
-  });
+  $.post('index.php', {'action' : 'loadCoordinates'}, tingmapResponse, 'json');
 }
 
 function tingmapResponse(response) {
@@ -24,15 +22,14 @@ function tingmapResponse(response) {
         // Inside polygon
         var points = new Array();
         for (var j in coordinates[name][i]) {
-          // Inside singel coordinate
+          // Inside point
           var coordinate = coordinates[name][i][j].split(',');
           var point = new GLatLng(coordinate[1], coordinate[0]);
           points.push(point);
-
-          //map.addOverlay(new GMarker(point));
-
         }
-        var polygon = new GPolygon(points, "#f33f00", 5, 1, "#ff0000", 0.2);
+
+        // Display regions on the map
+        var polygon = new GPolygon(points, "#000", 1, 1, "#00F", 0.4);
         map.addOverlay(polygon);
       }
     }

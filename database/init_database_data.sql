@@ -17,6 +17,7 @@ CREATE TABLE `account` (
   `level` int(11) NOT NULL,
   `fullname` text NOT NULL,
   `last_login` int(11) NOT NULL,
+  `active` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -24,7 +25,7 @@ CREATE TABLE `account` (
 # Dumping data for table 'account'
 #
 
-INSERT INTO account VALUES (1,'cableman','654e199892dc16043fb5b37ab12f049c',10,'Jesper Kristensen',0);
+INSERT INTO account VALUES (1,'cableman','654e199892dc16043fb5b37ab12f049c',10,'Jesper Kristensen',0,1);
 
 #
 # Table structure for table 'regions'
@@ -44,7 +45,7 @@ CREATE TABLE `regions` (
 #
 
 INSERT INTO regions VALUES (1,'aabenrå','aabenraa.kml',0);
-INSERT INTO regions VALUES (2,'aalborg','aalborg.kml',0);
+INSERT INTO regions VALUES (2,'aalborg','aalborg.kml',1);
 INSERT INTO regions VALUES (3,'albertslund','albertslund.kml',0);
 INSERT INTO regions VALUES (4,'allerød','alleroed.kml',0);
 INSERT INTO regions VALUES (5,'assens','assens.kml',0);
@@ -141,5 +142,20 @@ INSERT INTO regions VALUES (95,'vesthimmerlands','vesthimmerlands.kml',0);
 INSERT INTO regions VALUES (96,'viborg','viborg.kml',0);
 INSERT INTO regions VALUES (97,'vordingborg','vordingborg.kml',0);
 INSERT INTO regions VALUES (98,'ærø','aeroe.kml',0);
-INSERT INTO regions VALUES (99,'århus','aarhus.kml',0);
+INSERT INTO regions VALUES (99,'århus','aarhus.kml',1);
+
+#
+# Table structure for table 'session'
+#
+
+# DROP TABLE IF EXISTS session;
+CREATE TABLE `session` (
+  `id` text NOT NULL,
+  `time` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+#
+# Dumping data for table 'session'
+#
+
 

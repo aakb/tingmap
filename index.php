@@ -30,7 +30,7 @@ function placeholder($conf) {
 }
 
 // Take action
-$action = strtolower(Utils::getParam('action'));
+try {$action = strtolower(Utils::getParam('action'));} catch (Exception $e) {};
 switch ($action) {
   
   case 'loadcoordinates':

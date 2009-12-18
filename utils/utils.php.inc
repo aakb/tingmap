@@ -9,7 +9,7 @@ class Utils {
       return $_POST[$param];
     }
     else {
-      return false;
+      throw new Exception('Parameter not found: '. $param);
     }
   }
 }

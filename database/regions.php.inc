@@ -9,6 +9,7 @@ class Regions {
   private $name = null;
   private $file = null;
   private $selected = null;
+  private $loaded = false;
   
   private $connection = null;
 
@@ -68,6 +69,8 @@ class Regions {
       $this->name = $row['name'];
       $this->file = $row['file'];
       $this->selected = $row['selected'];
+
+      $this->loaded;
     }
     else {
       throw new Exception('Can\'t load unknown region! (line: '. __LINE__ .')');
@@ -75,7 +78,13 @@ class Regions {
   }
 
   public function save() {
-    
+    if ($this->loaded) {
+      $statement = 'UPDATE regions SET selected = :selected WHERE id = :id';
+      $query = $this->connection->execute($statement, array('selected', $this->selected));
+    }
+    else {
+      throw new Exception('Can\'t save region that have not been loaded! (line: '. __LINE__ .')');
+    }
   }
 
   public function getAllSelectRegions() {

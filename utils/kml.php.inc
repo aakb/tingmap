@@ -18,7 +18,9 @@ class kml {
     $xml = simplexml_load_file($this->file);
     $polygons = $xml->Document->Placemark->MultiGeometry->Polygon;
     foreach ($polygons as $polygon) {
-      $this->coordinates[] = array_map(array($this, 'clean_coordinates'), split(' ', $polygon->outerBoundaryIs->LinearRing->coordinates[0]));
+      $points = split(' ', $polygon->outerBoundaryIs->LinearRing->coordinates[0]);
+      array_pop($points); // Remove empty laste element
+      $this->coordinates[] = array_map(array($this, 'clean_coordinates'), $points);
     }
   }
 

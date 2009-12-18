@@ -23,6 +23,7 @@ function placeholder($conf) {
           </head>
           <body>
             <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+            <div id="bug" style="width:600px;"></div>
           </body>
         </html>';
   return $out;
@@ -41,6 +42,8 @@ switch ($action) {
       $kml = new kml($region['name'], $conf->getKmlPath() . $region[file]);
       $coordinates[basename($region['file'], '.kml')] = $kml->getCoordinates();
     }
+
+    //print_r($coordinates);
 
     echo json_encode(array('status' => 1, 'coordinates' => $coordinates));
     break;

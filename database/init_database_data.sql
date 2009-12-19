@@ -19,13 +19,14 @@ CREATE TABLE `account` (
   `last_login` int(11) NOT NULL,
   `active` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 #
 # Dumping data for table 'account'
 #
 
-INSERT INTO account VALUES (1,'cableman','654e199892dc16043fb5b37ab12f049c',10,'Jesper Kristensen',0,1);
+INSERT INTO account VALUES (1,'cableman','654e199892dc16043fb5b37ab12f049c',10,'Jesper Kristensen',1261183515,1);
+INSERT INTO account VALUES (2,'bo','a8f2728a70ba97a9e29a0ee82947de19',10,'Bo Fristed',0,1);
 
 #
 # Table structure for table 'regions'
@@ -94,7 +95,7 @@ INSERT INTO regions VALUES (47,'jammerbugt','jammerbugt.kml',0);
 INSERT INTO regions VALUES (48,'kalundborg','kalundborg.kml',0);
 INSERT INTO regions VALUES (49,'kerteminde','kerteminde.kml',0);
 INSERT INTO regions VALUES (50,'kolding','kolding.kml',0);
-INSERT INTO regions VALUES (51,'københavn','koebenhavn.kml',0);
+INSERT INTO regions VALUES (51,'københavn','koebenhavn.kml',1);
 INSERT INTO regions VALUES (52,'køge','koege.kml',0);
 INSERT INTO regions VALUES (53,'langeland','langeland.kml',0);
 INSERT INTO regions VALUES (54,'lejre','lejre.kml',0);
@@ -158,4 +159,5 @@ CREATE TABLE `session` (
 # Dumping data for table 'session'
 #
 
+INSERT INTO session VALUES ('17318433144b2c221b701d3',1261185315);
 

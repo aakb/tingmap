@@ -14,3 +14,53 @@
 .odd {
   background-color: #fff;
 }
+
+.err
+{
+  color: red !important;
+  border: 1px dashed red;
+}
+
+#feedback {
+  margin-bottom: 0.4em;
+  margin-top: 0.2em;
+}
+
+.err span
+{
+  background: url('/img/error.png') no-repeat;
+  background-position: 1px 0.08em;
+  padding-left: 20px;
+}
+
+
+.msg
+{
+  color: #006 !important;
+  border: none;
+}
+
+.msg span
+{
+  background: url('/img/communicating.gif') no-repeat;
+  background-position: 1px 0.08em;
+  padding-left: 20px;
+}
+
+.ok
+{
+  color: green !important;
+  border: 1px dashed green;
+}
+
+.ok span
+{
+  background: url('/img/ok.png') no-repeat;
+  background-position: 1px 0.08em;
+  padding-left: 20px;
+}
+
+
+#username {
+  margin-left: 3.9em;
+}

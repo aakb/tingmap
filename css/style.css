@@ -1,0 +1,16 @@
+
+.listing {
+  border-collapse: collapse;
+}
+
+.listing td {
+  padding: 4px;
+}
+
+.even {
+  background-color: #eee;
+}
+
+.odd {
+  background-color: #fff;
+}

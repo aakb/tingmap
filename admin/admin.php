@@ -53,6 +53,7 @@ function configuration_page($conf) {
                 <div id="feedback"><span>&nbsp;</span></div>
                 <div id="buttons">
                   <input class="button" id="saveBtn" type="button" value="Save" />
+                  <input class="button" id="logoutBtn" type="button" value="Logout" />
                 </div>
               </form>';
 
@@ -62,9 +63,27 @@ function configuration_page($conf) {
 try {$action = strtolower(Utils::getParam('action'));} catch (Exception $e) {};
 switch ($action) {
   case 'updateregions':
-    foreach ($_POST as $id) {
-      
+    // Deselect all regions
+    $region = new Regions();
+    $region->deselectAllRegions();
+
+    // Set selected regions
+    foreach ($_POST as $id => $state) {
+      if (is_numeric($id)) {
+        $region->id($id);
+        $region->load();
+        if ($state == 'on') {
+          $region->selected(1);
+        }
+        else {
+          $region->selected(0);
+        }
+        $region->save();
+      }
     }
+    echo json_encode(array('status' => 1,
+                           'msg' => 'Regions saved'));
+
     break;
 
   default:

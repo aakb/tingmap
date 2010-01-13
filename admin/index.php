@@ -35,12 +35,12 @@ try {
 }
 catch (Exception $e) {
   // Display login form
-  $content = '<div class="spacer">&nbsp;</div>
-              <div class="box">
+  $content = '<div id="login-box" class="box">
                 <h2 class="alignCenter">Log ind</h2>
                 <form name="login" id="login" action="" method="post">
                   <label for="username">Bruger:</label>
                   <input id="username" name="username" type="text" autocomplete="off" />
+                  <br />
                   <label for="passwd">Adgangskode:<label>
                   <input id="passwd" name="passwd" type="password" autocomplete="off" />
                   <div id="feedback"><span>&nbsp;</span></div>
@@ -53,7 +53,7 @@ catch (Exception $e) {
 
   // Build the page
   $layout = new Layout();
-  $layout->add_JS_file('/js/login.js');
+  $layout->add_JS_file('js/login.js');
   $layout->add_content($content);
   echo $layout;
 }

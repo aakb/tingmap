@@ -4,8 +4,8 @@ include_once 'conf.php.inc';
 
 class Layout {
 
-  private $js = array('/css/style.css');
-  private $css = array('/js/jquery-1.3.2.min.js');
+  private $css = array('css/style.css');
+  private $js = array('js/jquery-1.3.2.min.js');
   private $content = '';
 
   private $conf = null;
@@ -45,14 +45,16 @@ class Layout {
              <html xmlns="http://www.w3.org/1999/xhtml">
              <head>
                <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-               '. $this->wrap_array_in_element('<link href="'. $this->conf->getWebroot() .'/%s" rel="stylesheet" type="text/css"></link>', $this->js) .'
+               '. $this->wrap_array_in_element('<link href="'. $this->conf->getWebroot() .'/%s" rel="stylesheet" type="text/css"></link>', $this->css) .'
                '. $this->wrap_array_in_element('<script type="text/javascript" src="'. $this->conf->getWebroot() .'/%s"></script>', $this->js) .'
                <title>
                  TING udbredelseskort
                </title>
              </head>
              <body>
-               '.$this->content.'
+               <div id="content">
+                 '.$this->content.'
+               </div>
              </body>
              </html>';
 

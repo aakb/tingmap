@@ -35,26 +35,30 @@ try {
 }
 catch (Exception $e) {
   // Display login form
-  $content = '<div id="login-box" class="box">
-                <h2 class="alignCenter">Log ind</h2>
-                <form name="login" id="login" action="" method="post">
+  $content = '<div class="box roundCorners" style="width:400px">
+                <h2>Login</h2>
+                <form id="login" name="login" action="" method="post">
                   <label for="username">Bruger:</label>
-                  <input id="username" name="username" type="text" autocomplete="off" />
+                  <input id="username" name="username" type="text" style="width:200px" autocomplete="off"></input>
                   <br />
-                  <label for="passwd">Adgangskode:<label>
-                  <input id="passwd" name="passwd" type="password" autocomplete="off" />
-                  <div id="feedback"><span>&nbsp;</span></div>
-                  <div id="buttons">
-                    <input class="button" id="loginBtn" type="button" value="Login" />
+                  <label for="passwd">Adgangskode:</label>
+                  <input id="passwd" name="passwd" type="password" style="width:200px" autocomplete="off"></input>
+                  <br />
+                  <div id="feedback">
+                    <span id="icon"></span>
+                    <span id="msg"></span>
+                  </div>
+                  <div class="button-wrapper">
+                    <input class="button" id="loginBtn" type="button" value="Login"></input>
                   </div>
                 </form>
-              </div>
-            <div class="spacer">&nbsp;</div>';
+              </div>';
 
   // Build the page
   $layout = new Layout();
   $layout->add_JS_file('js/login.js');
   $layout->add_content($content);
+  $layout->addMenu(array());
   echo $layout;
 }
 

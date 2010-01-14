@@ -2,6 +2,7 @@
 
 include_once dirname(__FILE__).'/../database/authorize.php.inc';
 include_once dirname(__FILE__).'/../database/regions.php.inc';
+include_once dirname(__FILE__).'/../utils/layout.php.inc';
 
 include_once dirname(__FILE__).'/../utils/utils.php.inc';
 
@@ -47,17 +48,26 @@ function configuration_page($conf) {
   $regions_out .= '</table>';
   
   // Form wrapper
-  $content = '<form id="conf_region" name="conf_region" action="" method="post">
+  $content = '<h2>Regions</h2>
+              <p>Select the regions that should be displayed on the Google map.</p>
+              <form id="conf_region" name="conf_region" action="" method="post">
                 <input type="hidden" name="action" id="action" value="updateregions" />
                 ' . $regions_out . '
-                <div id="feedback"><span>&nbsp;</span></div>
-                <div id="buttons">
+                <div id="feedback">
+                  <span id="icon"></span>
+                  <span id="msg"></span>
+                </div>
+                
+                <div class="buttons">
                   <input class="button" id="saveBtn" type="button" value="Save" />
                   <input class="button" id="logoutBtn" type="button" value="Logout" />
                 </div>
               </form>';
 
-  return Utils::getPage($content, '<script type="text/javascript" src="'. $conf->getWebroot() .'/js/config.js"></script>');
+  $layout = new Layout();
+  $layout->add_JS_file('js/config.js');
+  $layout->add_content($content);
+  echo $layout;
 }
 
 try {$action = strtolower(Utils::getParam('action'));} catch (Exception $e) {};

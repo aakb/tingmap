@@ -6,10 +6,7 @@ $(document).ready(function() {
   });
 
   // Add form action
-  $('#saveBtn').click(function()
-  {
-    var feedback = $('#feedback');
-    feedback.removeClass('err msg ok');
+  $('#saveBtn').click(function() {
     trySave($('#conf_region'), 'Kommuniker med serveren');
   });
 
@@ -21,15 +18,9 @@ $(document).ready(function() {
 function trySave(form, msg) {
   // Disable save button
   $('#saveBtn').attr("disabled", "disabled")
-
-  // Get feedback fields
-  var feedback = $('#feedback');
-  var fbMsg = $('#feedback span');
   
   // Update feedback
-  feedback.addClass('msg');
-  fbMsg.html(msg);
-  fbMsg.fadeIn('slow');
+  displayFeedback('info', msg);
 
   // Send ajax request
   $.post('admin.php', form.serialize(), saveResponse, 'json');
@@ -38,15 +29,8 @@ function trySave(form, msg) {
 }
 
 function saveResponse(response) {
-  // Get feedback fields
-  var feedback = $('#feedback');
-  var fbMsg = $('#feedback span');
-  feedback.removeClass('err msg ok');
-
   if (response['status'] == 1) {
-    feedback.addClass('ok');
-    fbMsg.html(response['msg']);
-    fbMsg.fadeIn('slow');
+    displayFeedback('info', response['msg']);
   }
 
   // Enable save button

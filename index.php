@@ -10,11 +10,23 @@ include_once dirname(__FILE__).'/utils/utils.php.inc';
 include_once dirname(__FILE__).'/utils/kml.php.inc';
 
 function placeholder($conf) {
-  $content = '<div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>';
-  $js = '<script type="text/javascript" src="http://www.google.com/jsapi?key='. $conf->gkey() .'"></script>
-         <script type="text/javascript" src="'. $conf->getWebroot() .'/js/tingmap.js"></script>';
+  $content = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+             <html xmlns="http://www.w3.org/1999/xhtml">
+             <head>
+               <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+               <script type="text/javascript" src="http://www.google.com/jsapi?key='. $conf->gkey() .'"></script>
+               <script type="text/javascript" src="'. $conf->getWebroot() .'/js/tingmap.js"></script>
+                 <script type="text/javascript" src="'. $conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
+               <title>
+                 TING udbredelseskort
+               </title>
+             </head>
+             <body>
+               <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+             </body>
+             </html>';
 
-  return Utils::getPage($content, $js);
+  echo $content;
 }
 
 // Take action

@@ -5,14 +5,19 @@ include_once 'conf.php.inc';
 class Layout {
 
   private $css = array('css/style.css');
-  private $js = array('js/jquery-1.3.2.min.js');
+  private $js = array('js/curvycorners.js', 'js/jquery-1.3.2.min.js', 'js/utils.js');
   private $content = '';
+  private $menu = null;
 
   private $conf = null;
 
   public function __construct() {
     global $conf;
-    $this->conf = $conf;    
+    $this->conf = $conf;
+
+    $this->menu = array('Regions' => $this->conf->getWebroot().'/admin/admin.php',
+                        'Colors' => $this->conf->getWebroot().'/admin/colors.php',
+                        'Points' => $this->conf->getWebroot().'/admin/points.php');
   }
 
   public function __toString() {
@@ -27,6 +32,10 @@ class Layout {
     $this->css[] = $file;
   }
 
+  public function addMenu(array $menu) {
+    $this->menu = $menu;
+  }
+  
   public function add_content($content) {
     $this->content = $content;
   }
@@ -37,6 +46,19 @@ class Layout {
       $str .= sprintf($format, $value);
     }
     return $str;
+  }
+
+  private function renderMenu() {
+    $output = '<div id="menu">';
+    if ($this->menu != null) {
+      $output .= '<ul>';
+      foreach ($this->menu as $text => $link) {
+        $output .= '<li><a href="'.$link.'">'.$text.'</a></li>';
+      }
+      $output .= '</ul>';
+    }
+    $output .= "</div>";
+    return $output;
   }
 
   private function build() {
@@ -52,8 +74,11 @@ class Layout {
                </title>
              </head>
              <body>
-               <div id="content">
-                 '.$this->content.'
+               <div id="page">
+                  '.$this->renderMenu().'
+                <div id="content">
+                  '.$this->content.'
+                </div>
                </div>
              </body>
              </html>';

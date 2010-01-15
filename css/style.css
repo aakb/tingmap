@@ -172,3 +172,30 @@ label.check, label.radio {
 .buttons input[type=button] {
   margin-left: 0px;
 }
+
+
+#color-selections dt {
+  float: left;
+  padding: 5px 0;
+  width: 100px;
+  clear: left;
+
+}
+
+#color-selections dd {
+  border-bottom: 1px dotted #ccc;
+  padding: 5px 0;
+  margin: 0;
+}
+
+#color-selections .preview-color {
+  width: 20px;
+  height: 20px;
+  margin-left: 120px;
+  border: 1px dotted red;
+
+}
+
+#color-selections dd:last-child {
+  border-bottom: none;
+}

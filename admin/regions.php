@@ -37,7 +37,7 @@ function configuration_page($conf) {
     }
 
     // Cell
-    $regions_out .= '<td><input type="checkbox" name="'.$id.'" '.(($region['checked']) ? 'checked="yes"' : '' ).'>'.ucfirst($region['name']).'</input></td>';
+    $regions_out .= '<td><input type="checkbox" name="'.$id.'" '.(($region['checked']) ? 'checked="yes"' : '' ).'>'.$region['name'].'</input></td>';
 
     $cell_count++;
     if ($cell_count == 6) {

@@ -93,7 +93,7 @@ class Regions {
 
     $regions = array();
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-      $regions[$row['id']] = array('name' => $row['name'],
+      $regions[$row['id']] = array('name' => ucfirst($row['name']),
                                    'file' => $row['file'],
                                    'color' => $row['color']);
     }
@@ -107,7 +107,7 @@ class Regions {
 
     $regions = array();
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-      $regions[$row['id']] = array('name' => $row['name'], 
+      $regions[$row['id']] = array('name' => ucfirst($row['name']),
                                    'file' => $row['file'],
                                    'checked' => $row['selected']);
     }

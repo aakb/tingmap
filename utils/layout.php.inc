@@ -15,7 +15,7 @@ class Layout {
     global $conf;
     $this->conf = $conf;
 
-    $this->menu = array('Regions' => $this->conf->getWebroot().'/admin/admin.php',
+    $this->menu = array('Regions' => $this->conf->getWebroot().'/admin/regions.php',
                         'Colors' => $this->conf->getWebroot().'/admin/colors.php',
                         'Points' => $this->conf->getWebroot().'/admin/points.php',
                         'Logout' => $this->conf->getWebroot().'/admin/logout.php');

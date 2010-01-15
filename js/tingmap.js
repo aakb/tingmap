@@ -26,42 +26,19 @@ function tingmapResponse(response) {
         // Inside region polygon
         for (var polygon_ID in region_polygons[region_polygons_ID]) {
           // Inside polygon
-          var points = new Array();
-          
+          var points = new Array();          
           for (var point_ID in region_polygons[region_polygons_ID][polygon_ID]) {
-
             // Inside point
             var coordinate = region_polygons[region_polygons_ID][polygon_ID][point_ID];
             var point = new GLatLng(coordinate[0], coordinate[1]);
             points.push(point);
           }
-
           // Display region on the map
           var polygon = new GPolygon(points, "#000", 1, 1, region['color'], 0.4);
           map.addOverlay(polygon);
         }
       }
     }
-
-    /*
-    for (var name in coordinates) {
-      // Inside region (aalborg, aarhus etc.)
-      for (var i in coordinates[name]) {
-        // Inside polygon
-        var points = new Array();
-        for (var j in coordinates[name][i]) {
-          // Inside point
-          var coordinate = coordinates[name][i][j].split(',');
-          var point = new GLatLng(coordinate[1], coordinate[0]);
-          points.push(point);
-        }
-
-        // Display regions on the map
-        var polygon = new GPolygon(points, "#000", 1, 1, "#00F", 0.4);
-        map.addOverlay(polygon);
-      }
-    }
-    */
   }
   else {
     alert(response['msg']);

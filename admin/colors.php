@@ -6,6 +6,10 @@ include_once dirname(__FILE__).'/../utils/conf.php.inc';
 
 
 function colors_page($conf) {
+  
+  $content = '<h2>Colors</h2>
+             <p>Select the colors for the selected regions.</p>';
+
 
   $layout = new Layout();
   $layout->add_JS_file('js/colors.js');

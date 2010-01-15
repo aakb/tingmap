@@ -48,9 +48,7 @@ switch ($action) {
       // Empty it, as it have been add to data array
       $regions_polygons = null; 
     }
-
-    //print_r($coordinates);
-
+    
     echo json_encode(array('status' => 1, 'regions' => $data));
     break;
 

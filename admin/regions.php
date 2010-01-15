@@ -60,7 +60,6 @@ function configuration_page($conf) {
                 
                 <div class="buttons">
                   <input class="button" id="saveBtn" type="button" value="Save" />
-                  <input class="button" id="logoutBtn" type="button" value="Logout" />
                 </div>
               </form>';
 

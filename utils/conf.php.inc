@@ -60,7 +60,7 @@ class Conf {
     return $this->webroot;
   }
 
-  private $admin_page = '/admin/admin.php';
+  private $admin_page = '/admin/regions.php';
   public function getAdminPage() {
     return $this->getWebroot() . $this->admin_page;
   }

@@ -1,6 +1,7 @@
 
 var map = null;
 var count = 0;
+var regions = null;
 
 // Call this function when the page has been loaded
 function initialize() {
@@ -15,7 +16,34 @@ function initialize() {
 function tingmapResponse(response) {
 
   if (response['status'] == 1) {
-    var coordinates = response['coordinates'];
+    regions = response['regions'];
+
+    for (var region_ID in regions) {
+      var region = regions[region_ID];
+      var region_polygons = region['region_polygons'];
+      
+      for (var region_polygons_ID in region_polygons) {
+        // Inside region polygon
+        for (var polygon_ID in region_polygons[region_polygons_ID]) {
+          // Inside polygon
+          var points = new Array();
+          
+          for (var point_ID in region_polygons[region_polygons_ID][polygon_ID]) {
+
+            // Inside point
+            var coordinate = region_polygons[region_polygons_ID][polygon_ID][point_ID];
+            var point = new GLatLng(coordinate[0], coordinate[1]);
+            points.push(point);
+          }
+
+          // Display region on the map
+          var polygon = new GPolygon(points, "#000", 1, 1, region['color'], 0.4);
+          map.addOverlay(polygon);
+        }
+      }
+    }
+
+    /*
     for (var name in coordinates) {
       // Inside region (aalborg, aarhus etc.)
       for (var i in coordinates[name]) {
@@ -33,6 +61,7 @@ function tingmapResponse(response) {
         map.addOverlay(polygon);
       }
     }
+    */
   }
   else {
     alert(response['msg']);

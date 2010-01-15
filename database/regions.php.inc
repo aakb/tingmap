@@ -88,12 +88,14 @@ class Regions {
   }
 
   public function getAllSelectRegions() {
-    $statement = 'SELECT * FROM regions WHERE selected = 1';
+    $statement = 'SELECT id,name,file,color FROM regions WHERE selected = 1';
     $query = $this->connection->execute($statement);
 
     $regions = array();
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-      $regions[$row['id']] = array('name' => $row['name'], 'file' => $row['file']);
+      $regions[$row['id']] = array('name' => $row['name'],
+                                   'file' => $row['file'],
+                                   'color' => $row['color']);
     }
 
     return $regions;

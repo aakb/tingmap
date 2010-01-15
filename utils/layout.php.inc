@@ -17,7 +17,8 @@ class Layout {
 
     $this->menu = array('Regions' => $this->conf->getWebroot().'/admin/admin.php',
                         'Colors' => $this->conf->getWebroot().'/admin/colors.php',
-                        'Points' => $this->conf->getWebroot().'/admin/points.php');
+                        'Points' => $this->conf->getWebroot().'/admin/points.php',
+                        'Logout' => $this->conf->getWebroot().'/admin/logout.php');
   }
 
   public function __toString() {

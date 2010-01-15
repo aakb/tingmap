@@ -40,12 +40,18 @@ switch ($action) {
 
     foreach ($selected_regions as $key => $region) {
       $kml = new kml($region['name'], $conf->getKmlPath() . $region[file]);
-      $coordinates[basename($region['file'], '.kml')] = $kml->getCoordinates();
+      $regions_polygons[] = $kml->getRegionPolygons();
+      $data[$key] = array('name' => $region['name'],
+                          'color' => $region['color'],
+                          'region_polygons' => $regions_polygons);
+
+      // Empty it, as it have been add to data array
+      $regions_polygons = null; 
     }
 
     //print_r($coordinates);
 
-    echo json_encode(array('status' => 1, 'coordinates' => $coordinates));
+    echo json_encode(array('status' => 1, 'regions' => $data));
     break;
 
   default:

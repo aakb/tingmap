@@ -5,8 +5,7 @@ class kml {
   private $name = null;
   private $file = null;
 
-  private $coordinates = null;
-  private $polygon = null;
+  private $region_polygons = null;
 
   public function __construct($name, $file) {
     $this->name = $name;
@@ -20,16 +19,18 @@ class kml {
     foreach ($polygons as $polygon) {
       $points = split(' ', $polygon->outerBoundaryIs->LinearRing->coordinates[0]);
       array_pop($points); // Remove empty laste element
-      $this->coordinates[] = array_map(array($this, 'clean_coordinates'), $points);
+      $this->region_polygons[] = array_map(array($this, 'clean_coordinates'), $points);
     }
   }
 
   private function clean_coordinates($coordinat) {
-    return trim(substr($coordinat, 0, -2));
+    $coordinat = trim(substr($coordinat, 0, -2));
+    list ($long, $lat) = split(',', $coordinat);
+    return array($lat, $long);
   }
 
-  public function getCoordinates() {
-    return $this->coordinates;
+  public function getRegionPolygons() {
+    return $this->region_polygons;
   }
 }
 

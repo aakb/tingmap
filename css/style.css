@@ -38,6 +38,14 @@ p {
   -webkit-border-radius: 8px;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 
 
 
@@ -173,13 +181,16 @@ label.check, label.radio {
   margin-left: 0px;
 }
 
+#color-selections {
+  width: 210px;
+}
 
 #color-selections dt {
   float: left;
   padding: 5px 0;
   width: 100px;
   clear: left;
-
+  margin-left: 10px;
 }
 
 #color-selections dd {
@@ -191,11 +202,34 @@ label.check, label.radio {
 #color-selections .preview-color {
   width: 20px;
   height: 20px;
-  margin-left: 120px;
-  border: 1px dotted red;
-
+  margin-left: 160px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 #color-selections dd:last-child {
   border-bottom: none;
+}
+
+#color-box-selection {
+  margin-top: 10px;
+  width: 350px;
+  height: 400px;
+}
+
+#color-box-selection .farbtastic {
+  margin: 0 auto;
+}
+
+#color-box-selection .center {
+  margin-top: 10px;
+}
+
+#color-box-selection input {
+  display: block;
+  margin: 0 auto;
+}
+
+#color-box-selection .button-wrapper {
+  margin-top: 6px;
 }

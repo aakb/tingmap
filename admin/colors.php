@@ -14,6 +14,7 @@ function colors_page($conf) {
   $content = '<h2>Colors</h2>
              <p>Select the colors for the selected regions.</p>';
 
+  $content .= '<div class="left">';
   $content .= '<dl id="color-selections">';
   foreach ($selected_regions as $key => $region) {
     $content .= '<dt class="color-name">'.$region['name'].'</dt>
@@ -22,9 +23,24 @@ function colors_page($conf) {
                     </dd>';
   }
   $content .= '</dl>';
+  $content .= '</div>';
+  $content .= '<div id="color-box-selection" class="right box roundCorners">';
+  $content .= '  <h2>Color selector</h2>';
+  $content .= '  <p>Start by selecting one of the colored boxes, beside the region names.</p>';
+  $content .= '  <p class="region-name"></p>';
+  $content .= '  <div id="color-picker"></div>';
+  $content .= '  <div class="center">';
+  $content .= '    <input name="color-hex" id="color-hex" type="text" value="#000000" size="6"></input>';
+  $content .= '    <div class="button-wrapper">';
+  $content .= '      <input type="button" id="color-save" value="Save"></input>';
+  $content .= '    </div>';
+  $content .= '  </div>';
+  $content .= '</div>';
 
   $layout = new Layout();
+  $layout->add_CSS_file('css/farbtastic.css');
   $layout->add_JS_file('js/colors.js');
+  $layout->add_JS_file('js/farbtastic.js');
   $layout->add_content($content);
   echo $layout;
 }

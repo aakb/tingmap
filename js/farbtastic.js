@@ -32,7 +32,7 @@ jQuery._farbtastic = function (container, callback) {
   var fb = this;
 
   // Insert markup
-  $(container).append('<div class="farbtastic"><div class="color"></div><div class="wheel"></div><div class="overlay"></div><div class="h-marker marker"></div><div class="sl-marker marker"></div></div>');
+  $(container).html('<div class="farbtastic"><div class="color"></div><div class="wheel"></div><div class="overlay"></div><div class="h-marker marker"></div><div class="sl-marker marker"></div></div>');
   var e = $('.farbtastic', container);
   fb.wheel = $('.wheel', container).get(0);
   // Dimensions

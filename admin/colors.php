@@ -26,11 +26,12 @@ function colors_page($conf) {
   $content .= '</div>';
   $content .= '<div id="color-box-selection" class="right box roundCorners">';
   $content .= '  <h2>Color selector</h2>';
-  $content .= '  <p>Start by selecting one of the colored boxes, beside the region names.</p>';
-  $content .= '  <p class="region-name"></p>';
-  $content .= '  <div id="color-picker"></div>';
+  $content .= '  <p>Select a color an click "Save" or click on another rigion to auto save.</p>';
   $content .= '  <div class="center">';
-  $content .= '    <input name="color-hex" id="color-hex" type="text" value="#000000" size="6"></input>';
+  $content .= '    <p class="region-name"></p>';
+  $content .= '    <div id="color-picker"></div>';
+  $content .= '    <input name="color-hex" id="color-hex" type="text" value="#" size="6"></input>';
+  $content .= '    <input name="region-id" id="region-id" type="hidden" value="#"></input>';
   $content .= '    <div class="button-wrapper">';
   $content .= '      <input type="button" id="color-save" value="Save"></input>';
   $content .= '    </div>';

@@ -9,6 +9,7 @@ class Regions {
   private $name = null;
   private $file = null;
   private $selected = null;
+  private $color = null;
   private $loaded = false;
   
   private $connection = null;
@@ -58,6 +59,15 @@ class Regions {
     }
   }
 
+  public function color($val) {
+    if ($val != null) {
+      $this->color = $val;
+    }
+    else {
+      return $this->color;
+    }
+  }
+
   public function load() {
     if ($this->id != null) {
       $statement = 'SELECT * FROM regions WHERE id = :id';
@@ -69,6 +79,7 @@ class Regions {
       $this->name = $row['name'];
       $this->file = $row['file'];
       $this->selected = $row['selected'];
+      $this->color = $row['color'];
 
       $this->loaded = true;
     }
@@ -81,6 +92,16 @@ class Regions {
     if ($this->loaded) {
       $statement = 'UPDATE regions SET selected = :selected WHERE id = :id';
       $query = $this->connection->execute($statement, array('id' => $this->id, 'selected' => $this->selected));
+    }
+    else {
+      throw new Exception('Can\'t save region that have not been loaded! (line: '. __LINE__ .')');
+    }
+  }
+
+  public function updateColor() {
+    if ($this->loaded) {
+      $statement = 'UPDATE regions SET color = :color WHERE id = :id';
+      $query = $this->connection->execute($statement, array('id' => $this->id, 'color' => $this->color));
     }
     else {
       throw new Exception('Can\'t save region that have not been loaded! (line: '. __LINE__ .')');

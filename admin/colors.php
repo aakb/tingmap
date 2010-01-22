@@ -31,6 +31,7 @@ function colors_page($conf) {
   $content .= '    <p class="region-name"></p>';
   $content .= '    <div id="color-picker"></div>';
   $content .= '    <input name="color-hex" id="color-hex" type="text" value="#" size="6"></input>';
+  $content .= '    <input name="region-color" id="region-color" type="hidden" value="#"></input>';
   $content .= '    <input name="region-id" id="region-id" type="hidden" value="#"></input>';
   $content .= '    <div class="button-wrapper">';
   $content .= '      <input type="button" id="color-save" value="Save"></input>';
@@ -52,8 +53,11 @@ try {$action = strtolower(Utils::getParam('action'));} catch (Exception $e) {};
 switch ($action) {
   
   case 'updatecolor':
-    
-
+    $region = new Regions();
+    $region->id(Utils::getParam('id'));
+    $region->load();
+    $region->color(Utils::getParam('color'));
+    $region->updateColor();
     break;
 
   default:

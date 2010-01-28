@@ -19,7 +19,10 @@ function colors_page($conf) {
   foreach ($selected_regions as $key => $region) {
     $content .= '<dt class="color-name">'.$region['name'].'</dt>
                     <dd id="preview-color-'.$key.'">
-                      <div class="preview-color"></div><input id="region_'.$key.'" type="hidden" value="'.$region['color'].'"></input>
+                      <div class="preview-color"></div>
+                      <input class="region-color" type="hidden" value="'.$region['color'].'"></input>
+                      <input class="region-name" type="hidden" value="'.$region['name'].'"></input>
+                      <input class="region-id" type="hidden" value="'.$key.'"></input>
                     </dd>';
   }
   $content .= '</dl>';
@@ -28,7 +31,7 @@ function colors_page($conf) {
   $content .= '  <h2>Color selector</h2>';
   $content .= '  <p>Select a color an click "Save" or click on another rigion to auto save.</p>';
   $content .= '  <div class="center">';
-  $content .= '    <p class="region-name"></p>';
+  $content .= '    <p id="region-name"></p>';
   $content .= '    <div id="color-picker"></div>';
   $content .= '    <input name="color-hex" id="color-hex" type="text" value="#" size="6"></input>';
   $content .= '    <input name="region-color" id="region-color" type="hidden" value="#"></input>';

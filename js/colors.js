@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
   var f = $.farbtastic('#color-picker');
-
+  
   // Setup color selector box
   $('#color-box-selection').hide();
   // Hook into save btn
@@ -9,9 +9,10 @@ $(document).ready(function() {
 
   // Hook into the color preview elements
   $('#color-selections dd').each(function() {
-    var color_input_field = $(this).children('input');
-    var preview_color = $(this).children('.preview-color');
-
+    var color_input_field = $('.region-color', this);
+    var region_name = $('.region-name', this);
+    var preview_color = $('.preview-color', this);
+    
     // Set color on preview
     preview_color.css('background-color', color_input_field.val());
 
@@ -25,7 +26,7 @@ $(document).ready(function() {
         }
         else {
           // Restor org. color
-          var color_input_field_prev = $('#region_' + $('#region-id').val());
+          var color_input_field_prev = $('#region_id_' + $('#region-id').val());
           color_input_field_prev.val($('#region-color').val());
           color_input_field_prev.siblings('div').css('background-color', $('#region-color').val());
         }
@@ -53,9 +54,11 @@ $(document).ready(function() {
         // Update hex color value
         $('#color-hex').val(color_input_field.val());
         // Update hidden id field
-        $('#region-id').val(color_input_field.attr('id').split('_')[1]);
+        $('#region-id').val(color_input_field.attr('id').split('_')[2]);
         // Disable save btn
         $('#color-save').attr('disabled', 'disabled');
+        // Set region name
+        $('#region-name').html(region_name.val());
         // Display color picker
         $('#color-box-selection').fadeIn(600);
         //
@@ -67,7 +70,7 @@ $(document).ready(function() {
     if ($('#color-hex').val() != $('#region-color').val()) {
       $.post('colors.php',
              {'id' : $('#region-id').val(),
-              'color' : $('#region_' + $('#region-id').val()).val(),
+              'color' : $('#hex-color').val(),
               'action': 'updatecolor'},
              function(data) {}, 'json');
       // Disable save btn

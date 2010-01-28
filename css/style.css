@@ -222,12 +222,19 @@ label.check, label.radio {
 }
 
 #color-box-selection .center {
+  text-align: center;
   margin-top: 10px;
 }
 
 #color-box-selection input {
   display: block;
   margin: 0 auto;
+}
+
+#color-box-selection #region-name {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 110%;
 }
 
 #color-box-selection .button-wrapper {

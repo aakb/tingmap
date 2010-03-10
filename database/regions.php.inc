@@ -10,6 +10,7 @@ class Regions {
   private $file = null;
   private $selected = null;
   private $color = null;
+  private $population = null;
   private $loaded = false;
   
   private $connection = null;
@@ -68,6 +69,15 @@ class Regions {
     }
   }
 
+  public function population($val) {
+    if ($val != null) {
+      $this->population = $val;
+    }
+    else {
+      return $this->population;
+    }
+  }
+
   public function load() {
     if ($this->id != null) {
       $statement = 'SELECT * FROM regions WHERE id = :id';
@@ -80,6 +90,7 @@ class Regions {
       $this->file = $row['file'];
       $this->selected = $row['selected'];
       $this->color = $row['color'];
+      $this->population = $row['population'];
 
       $this->loaded = true;
     }
@@ -109,16 +120,16 @@ class Regions {
   }
 
   public function getAllSelectRegions() {
-    $statement = 'SELECT id,name,file,color FROM regions WHERE selected = 1';
+    $statement = 'SELECT id,name,file,color,population FROM regions WHERE selected = 1';
     $query = $this->connection->execute($statement);
 
     $regions = array();
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
       $regions[$row['id']] = array('name' => ucfirst($row['name']),
                                    'file' => $row['file'],
-                                   'color' => $row['color']);
+                                   'color' => $row['color'],
+                                   'population' => $row['population']);
     }
-
     return $regions;
   }
 

@@ -43,6 +43,7 @@ switch ($action) {
       $regions_polygons[] = $kml->getRegionPolygons();
       $data[$key] = array('name' => $region['name'],
                           'color' => $region['color'],
+                          'population' => $region['population'],
                           'region_polygons' => $regions_polygons);
 
       // Empty it, as it have been add to data array

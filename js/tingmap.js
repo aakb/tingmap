@@ -35,7 +35,7 @@ function tingmapResponse(response) {
                                                      levels: points['Levels'],
                                                      color: "#000000",
                                                      opacity: 1,
-                                                     weight: 3,
+                                                     weight: 1,
                                                      numLevels: points['NumLevels'],
                                                      zoomFactor: points['ZoomFactor']}],
                                                   fill: true,

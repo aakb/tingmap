@@ -7,7 +7,8 @@ var regions = null;
 function initialize() {
   map = new google.maps.Map2(document.getElementById("ting_gmap"));
   map.setCenter(new google.maps.LatLng(56.016808, 10.431763), 7);
-  map.setMapType(G_SATELLITE_MAP);
+  map.setMapType(G_PHYSICAL_MAP);
+  map.addControl(new GSmallMapControl());
 
   // Request coordinates
   $.post('index.php', {'action' : 'loadCoordinates'}, tingmapResponse, 'json');

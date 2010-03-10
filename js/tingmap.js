@@ -26,16 +26,22 @@ function tingmapResponse(response) {
         // Inside region polygon
         for (var polygon_ID in region_polygons[region_polygons_ID]) {
           // Inside polygon
-          var points = new Array();          
-          for (var point_ID in region_polygons[region_polygons_ID][polygon_ID]) {
-            // Inside point
-            var coordinate = region_polygons[region_polygons_ID][polygon_ID][point_ID];
-            var point = new GLatLng(coordinate[0], coordinate[1]);
-            points.push(point);
-          }
+          var points = region_polygons[region_polygons_ID][polygon_ID];
           // Display region on the map
-          var polygon = new GPolygon(points, "#000", 1, 1, region['color'], 0.4);
-          map.addOverlay(polygon);
+          map.addOverlay(new GPolygon.fromEncoded({
+                                                  polylines: [
+                                                    {points: points['Points'],
+                                                     levels: points['Levels'],
+                                                     color: "#000000",
+                                                     opacity: 1,
+                                                     weight: 3,
+                                                     numLevels: points['NumLevels'],
+                                                     zoomFactor: points['ZoomFactor']}],
+                                                  fill: true,
+                                                  color: region['color'],
+                                                  opacity: 0.4,
+                                                  outline: true
+                                                }));
         }
       }
     }

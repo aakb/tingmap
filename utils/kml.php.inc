@@ -1,5 +1,7 @@
 <?php
 
+include_once dirname(__FILE__).'/PolylineEncoder.php';
+
 class kml {
 
   private $name = null;
@@ -19,7 +21,11 @@ class kml {
     foreach ($polygons as $polygon) {
       $points = split(' ', $polygon->outerBoundaryIs->LinearRing->coordinates[0]);
       array_pop($points); // Remove empty laste element
-      $this->region_polygons[] = array_map(array($this, 'clean_coordinates'), $points);
+      $points = array_map(array($this, 'clean_coordinates'), $points);
+      
+      // Encode polygons
+      $encoder = new PolylineEncoder($points);
+      $this->region_polygons[] = $encoder->dpEncode();
     }
   }
 

@@ -11,6 +11,7 @@ $(document).ready(function() {
   $('#color-selections dd').each(function() {
     var color_input_field = $('.region-color', this);
     var region_name = $('.region-name', this);
+    var region_id = $('.region-id', this);
     var preview_color = $('.preview-color', this);
     
     // Set color on preview
@@ -26,7 +27,7 @@ $(document).ready(function() {
         }
         else {
           // Restor org. color
-          var color_input_field_prev = $('#region_id_' + $('#region-id').val());
+          var color_input_field_prev = $('#preview_color_' + $('#region-id').val());
           color_input_field_prev.val($('#region-color').val());
           color_input_field_prev.siblings('div').css('background-color', $('#region-color').val());
         }
@@ -54,7 +55,7 @@ $(document).ready(function() {
         // Update hex color value
         $('#color-hex').val(color_input_field.val());
         // Update hidden id field
-        $('#region-id').val(color_input_field.attr('id').split('_')[2]);
+        $('#region-id').val(region_id.val());
         // Disable save btn
         $('#color-save').attr('disabled', 'disabled');
         // Set region name
@@ -70,7 +71,7 @@ $(document).ready(function() {
     if ($('#color-hex').val() != $('#region-color').val()) {
       $.post('colors.php',
              {'id' : $('#region-id').val(),
-              'color' : $('#hex-color').val(),
+              'color' : $('#color-hex').val(),
               'action': 'updatecolor'},
              function(data) {}, 'json');
       // Disable save btn

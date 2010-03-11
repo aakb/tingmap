@@ -19,8 +19,13 @@ p {
 
 
 
-
-
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
 
 .box {
   margin: 0px auto;
@@ -215,7 +220,6 @@ label.check, label.radio {
 #color-box-selection {
   margin-top: 10px;
   width: 400px;
-  height: 350px;
 }
 
 #color-box-selection .farbtastic {

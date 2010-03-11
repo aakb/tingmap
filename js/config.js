@@ -23,7 +23,7 @@ function trySave(form, msg) {
   displayFeedback('info', msg);
 
   // Send ajax request
-  $.post('admin.php', form.serialize(), saveResponse, 'json');
+  $.post('regions.php', form.serialize(), saveResponse, 'json');
 
   return true;
 }

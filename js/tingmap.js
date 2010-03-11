@@ -2,6 +2,19 @@
 var map = null;
 var count = 0;
 var regions = null;
+var population = 0;
+
+function addCommas(nStr) {
+  nStr += '';
+  x = nStr.split('.');
+  x1 = x[0];
+  x2 = x.length > 1 ? '.' + x[1] : '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + '.' + '$2');
+  }
+  return x1 + x2;
+}
 
 // Call this function when the page has been loaded
 function initialize() {
@@ -16,7 +29,7 @@ function initialize() {
 
 function tingmapResponse(response) {
 
-  if (response['status'] == 1) {
+  if (response['status'] == 'selected_regions') {
     regions = response['regions'];
 
     for (var region_ID in regions) {
@@ -27,25 +40,29 @@ function tingmapResponse(response) {
         // Inside region polygon
         for (var polygon_ID in region_polygons[region_polygons_ID]) {
           // Inside polygon
-          var points = region_polygons[region_polygons_ID][polygon_ID];
+          var data = region_polygons[region_polygons_ID][polygon_ID];
           // Display region on the map
           map.addOverlay(new GPolygon.fromEncoded({
                                                   polylines: [
-                                                    {points: points['Points'],
-                                                     levels: points['Levels'],
+                                                    {points: data['Points'],
+                                                     levels: data['Levels'],
                                                      color: "#000000",
                                                      opacity: 1,
                                                      weight: 1,
-                                                     numLevels: points['NumLevels'],
-                                                     zoomFactor: points['ZoomFactor']}],
+                                                     numLevels: data['NumLevels'],
+                                                     zoomFactor: data['ZoomFactor']}],
                                                   fill: true,
                                                   color: region['color'],
                                                   opacity: 0.4,
                                                   outline: true
-                                                }));
+                                                }));      
         }
       }
+      population += parseInt(region['population']);
     }
+
+    // Insert population
+    $('#population').append('<p>Ting kan bruges af <b>'+addCommas(population)+'</b> borger.</p>');
   }
   else {
     alert(response['msg']);

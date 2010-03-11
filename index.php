@@ -26,7 +26,7 @@ function placeholder($conf) {
                <div id="content">
                  <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
                  <div id="population">
-                   <h2>Ting population</h2>
+                   <h2>Befolkning</h2>
                  </div>
                </div>
              </body>
@@ -56,7 +56,7 @@ switch ($action) {
       $regions_polygons = null; 
     }
     
-    echo json_encode(array('status' => 1, 'regions' => $data));
+    echo json_encode(array('status' => "selected_regions", 'regions' => $data));
     break;
 
   default:

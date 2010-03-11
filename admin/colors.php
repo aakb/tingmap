@@ -30,7 +30,7 @@ function colors_page($conf) {
   $content .= '<div id="color-box-selection" class="right box roundCorners">';
   $content .= '  <h2>Color selector</h2>';
   $content .= '  <p>Select a color an click "Save" or click on another rigion to auto save.</p>';
-  $content .= '  <div class="center">';
+  $content .= '  <div class="center  clearfix">';
   $content .= '    <p id="region-name"></p>';
   $content .= '    <div id="color-picker"></div>';
   $content .= '    <input name="color-hex" id="color-hex" type="text" value="#" size="6"></input>';

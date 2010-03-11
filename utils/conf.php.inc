@@ -3,10 +3,10 @@
 class Conf {
 
   // Database configuration
-  private $database = 'ting_map';
+  private $database = 'tingmap_etek_dk';
   private $server   = 'localhost';
-  private $user     = 'root';
-  private $passwd   = 'Hr1Rod';
+  private $user     = 'tingmap_etek_dk';
+  private $passwd   = '0Gbm5H6s8v5Q84';
 
   public function getDB() {
     return $this->database;
@@ -33,7 +33,7 @@ class Conf {
   // End file paths
 
   // Google map settings
-  private $gkey = 'ABQIAAAA9R5q17pqStwXYr5_fGwbshSFlJqI8A_ukbJ8NDNja8qdLzJOsxRNd-9GEiAZNWhR5c7j5G-fyr0e6g';
+  private $gkey = 'ABQIAAAA9R5q17pqStwXYr5_fGwbshQdsGoDhOO5dDXgBJZflgvLfp46ZxTNIa0B3Rd_pPY_bXR1pEjzpOJ1Tw';
   public function gkey() {
     return $this->gkey;
   }

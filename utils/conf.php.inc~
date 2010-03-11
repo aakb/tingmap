@@ -25,118 +25,58 @@ class Conf {
   }
   // End database configuration
 
-  // Kommuner in denmark
-  private $kommuner = array(
-    ''
-  );
+  // File paths
+  private $kml_path = '/kml/';
+  public function getKmlPath() {
+    return dirname(__FILE__) . '/..' . $this->kml_path;
+  }
+  // End file paths
 
+  // Google map settings
+  private $gkey = 'ABQIAAAA9R5q17pqStwXYr5_fGwbshSFlJqI8A_ukbJ8NDNja8qdLzJOsxRNd-9GEiAZNWhR5c7j5G-fyr0e6g';
+  public function gkey() {
+    return $this->gkey;
+  }
 
-  /*
+  private $gmap_center = '56.016808, 10.431763'; // Denmark centring at zoom 7
+  public function gmap_center() {
+    return $this->gmap_center;
+  }
 
-  * aabenraa.kml
-  * billund.kml
-  * favrskov.kml
-  * glostrup.kml
-  * hilleroed.kml
-  * jammerbugt.kml
-  * lolland.kml
-  * odense.kml
-  * silkeborg.kml
-  * syddjurs.kml
-  * vordingborg.kml
-  * aalborg.kml
-  * bornholm.kml
-  * faxe.kml
-  * greve.kml
-  * hjoerring.kml
-  * kalundborg.kml
-  * lyngby.kml
-  * odsherred.kml
-  * skanderborg.kml
-  * taarnby.kml
-  * aarhus.kml
-  * broendby.kml
-  * fredensborg.kml
-  * gribskov.kml
-  * hoejetaastrup.kml
-  * kerteminde.kml
-  * mariagerfjord.kml
-  * randers.kml
-  * skive.kml
-  * thisted.kml
-  * aeroe.kml
-  * broenderslev.kml
-  * fredericia.kml
-  * guldborgsund.kml
-  * hoersholm.kml
-  * koebenhavn.kml
-  * middelfart.kml
-  * rebild.kml
-  * slagelse.kml
-  * toender.kml
-  * albertslund.kml
-  * christiansoe.kml
-  * frederiksberg.kml
-  * haderslev.kml
-  * holbaek.kml
-  * koege.kml
-  * morsoe.kml
-  * ringkobing.kml
-  * soenderborg.kml
-  * vallensbaek.kml
-  * allekommuner.kml
-  * dragoe.kml
-  * frederikshavn.kml
-  * halsnaes.kml
-  * holstebro.kml
-  * kolding.kml
-  * naestved.kml
-  * ringsted.kml
-  * solroed.kml
-  * varde.kml
-  * egedal.kml
-  * frederikssund.kml
-  * hedensted.kml
-  * horsens.kml
-  * laesoe.kml
-  * norddjurs.kml
-  * roedovre.kml
-  * soroe.kml
-  * vejen.kml
-  * alleroed.kml
-  * esbjerg.kml
-  * furesoe.kml
-  * helsingoer.kml
-  * hvidovre.kml
-  * langeland.kml
-  * nordfyns.kml
-  * roskilde.kml
-  * stevns.kml
-  * vejle.kml
-  * assens.kml
-  * faaborg.kml
-  * gentofte.kml
-  * herlev.kml
-  * ikast.kml
-  * lejre.kml
-  * nyborg.kml
-  * rudersdal.kml
-  * struer.kml
-  * vesthimmerlands.kml
-  * ballerup.kml
-  * fanoe.kml
-  * gladsaxe.kml
-  * herning.kml
-  * ishoej.kml
-  * lemvig.kml
-  * odder.kml
-  * samsoe.kml
-  * sendborg.kml
-  * viborg.kml
-  */
+  // End google map settings
 
-  // End kommuner in denmark
+  // Define the system locations
+  private $webroot = null;
+  public function getWebroot() {
+    if ($this->webroot == null) {
+      $path = substr(dirname(__FILE__), 0, strlen(dirname(__FILE__)) - 5);
+      $this->webroot = substr($path, strlen($_SERVER['DOCUMENT_ROOT']));
 
+      // Correction of webroot
+      if ($this->webroot == '/') {
+        $this->webroot = '';
+      }
+    }
+    return $this->webroot;
+  }
+
+  private $admin_page = '/admin/regions.php';
+  public function getAdminPage() {
+    return $this->getWebroot() . $this->admin_page;
+  }
+  // End define the system locations
+
+  // Cookie config
+  private $cookie_name   = 'tingmap';
+  private $cookie_expire = 30; // Mins
+  public function getCookieName() {
+    return $this->cookie_name;
+  }
+
+  public function getCookieExpire() {
+    return $this->cookie_expire * 60; // Secs
+  }
+  // End cookie config
 }
 
 $conf = new Conf();

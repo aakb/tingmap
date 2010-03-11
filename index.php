@@ -16,13 +16,19 @@ function placeholder($conf) {
                <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
                <script type="text/javascript" src="http://www.google.com/jsapi?key='. $conf->gkey() .'"></script>
                <script type="text/javascript" src="'. $conf->getWebroot() .'/js/tingmap.js"></script>
-                 <script type="text/javascript" src="'. $conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
+               <script type="text/javascript" src="'. $conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
+               <link href="'. $conf->getWebroot() .'/css/style.css" rel="stylesheet" type="text/css"></link>
                <title>
                  TING udbredelseskort
                </title>
              </head>
              <body>
-               <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+               <div id="content">
+                 <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+                 <div id="population">
+                   <h2>Ting population</h2>
+                 </div>
+               </div>
              </body>
              </html>';
 

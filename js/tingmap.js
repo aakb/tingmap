@@ -62,7 +62,7 @@ function tingmapResponse(response) {
     }
 
     // Insert population
-    $('#population').append('<p>Ting kan bruges af <b>'+addCommas(population)+'</b> borger.</p>');
+    $('#population').append('<p>Ting kan bruges af <b>'+addCommas(population)+'</b> borgere.</p>');
   }
   else {
     alert(response['msg']);

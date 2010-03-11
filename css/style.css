@@ -1,6 +1,7 @@
 
 body {
-  margin:50px 0px; padding:0px;
+  margin:20px 0px;
+  padding:0px;
   text-align:center;
   font-family: arial, sans-serif;
   font-size: 16px;
@@ -239,4 +240,26 @@ label.check, label.radio {
 
 #color-box-selection .button-wrapper {
   margin-top: 6px;
+}
+
+
+/* Front page */
+div#content {
+  width: 900px;
+  margin: 0 auto;
+}
+
+div#content div#ting_gmap {
+  width: 650px;
+  float: left;
+}
+
+div#content div#population {
+  float: right;
+  width: 290px;
+  text-align: left;
+}
+
+div#content div#population h2 {
+  font-size: 20px;
 }

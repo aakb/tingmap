@@ -16,13 +16,19 @@ function placeholder($conf) {
                <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
                <script type="text/javascript" src="http://www.google.com/jsapi?key='. $conf->gkey() .'"></script>
                <script type="text/javascript" src="'. $conf->getWebroot() .'/js/tingmap.js"></script>
-                 <script type="text/javascript" src="'. $conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
+               <script type="text/javascript" src="'. $conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
+               <link href="'. $conf->getWebroot() .'/css/style.css" rel="stylesheet" type="text/css"></link>
                <title>
                  TING udbredelseskort
                </title>
              </head>
              <body>
-               <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+               <div id="content">
+                 <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+                 <div id="population">
+                   <h2>Befolkning</h2>
+                 </div>
+               </div>
              </body>
              </html>';
 
@@ -43,13 +49,14 @@ switch ($action) {
       $regions_polygons[] = $kml->getRegionPolygons();
       $data[$key] = array('name' => $region['name'],
                           'color' => $region['color'],
+                          'population' => $region['population'],
                           'region_polygons' => $regions_polygons);
 
       // Empty it, as it have been add to data array
       $regions_polygons = null; 
     }
     
-    echo json_encode(array('status' => 1, 'regions' => $data));
+    echo json_encode(array('status' => "selected_regions", 'regions' => $data));
     break;
 
   default:

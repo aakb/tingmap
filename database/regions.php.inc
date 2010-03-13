@@ -33,7 +33,7 @@ class Regions {
     }
   }
 
-  public function name($val) {
+  public function name($val = null) {
     if ($val != null) {
       $this->name = $val;
     }
@@ -42,7 +42,7 @@ class Regions {
     }
   }
 
-  public function file($val) {
+  public function file($val = null) {
     if ($val != null) {
       $this->file = $val;
     }
@@ -51,7 +51,7 @@ class Regions {
     }
   }
 
-  public function selected($val) {
+  public function selected($val = null) {
     if ($val != null) {
       $this->selected = $val;
     }
@@ -60,7 +60,7 @@ class Regions {
     }
   }
 
-  public function color($val) {
+  public function color($val = null) {
     if ($val != null) {
       $this->color = $val;
     }
@@ -69,7 +69,7 @@ class Regions {
     }
   }
 
-  public function population($val) {
+  public function population($val = null) {
     if ($val != null) {
       $this->population = $val;
     }

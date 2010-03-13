@@ -73,7 +73,7 @@ $(document).ready(function() {
              {'id' : $('#region-id').val(),
               'color' : $('#color-hex').val(),
               'action': 'updatecolor'},
-             function(data) {}, 'json');
+             function(respones) { $.jGrowl(respones['msg'], { header: 'Saved' }); }, 'json');
       // Disable save btn
       $('#color-save').attr('disabled', 'disabled');
       // Update org. color

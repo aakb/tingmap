@@ -44,8 +44,10 @@ function colors_page($conf) {
 
   $layout = new Layout();
   $layout->add_CSS_file('css/farbtastic.css');
+  $layout->add_CSS_file('css/jquery.jgrowl.css');
   $layout->add_JS_file('js/colors.js');
   $layout->add_JS_file('js/farbtastic.js');
+  $layout->add_JS_file('js/jquery.jgrowl_minimized.js');
   $layout->add_content($content);
   echo $layout;
 }
@@ -61,6 +63,7 @@ switch ($action) {
     $region->load();
     $region->color(Utils::getParam('color'));
     $region->updateColor();
+    echo json_encode(array('msg' => 'Color for \''. $region->name() .'\' have been saved'));
     break;
 
   default:

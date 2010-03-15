@@ -62,7 +62,7 @@ function encodeRegions($selected = 1) {
 try {$action = strtolower(Utils::getParam('action'));} catch (Exception $e) {};
 switch ($action) {
   
-  case 'loadcoordinates':
+  case 'loadselectedregions':
     echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(1)));
     break;
 

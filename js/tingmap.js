@@ -24,7 +24,7 @@ function initialize() {
   map.addControl(new GSmallMapControl());
 
   // Request coordinates
-  $.post('index.php', {'action' : 'loadCoordinates'}, tingmapResponse, 'json');
+  $.post('index.php', {'action' : 'loadselectedregions'}, tingmapResponse, 'json');
 }
 
 function tingmapResponse(response) {

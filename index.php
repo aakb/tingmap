@@ -35,30 +35,41 @@ function placeholder($conf) {
   echo $content;
 }
 
+// Encode regions information
+function encodeRegions($selected = 1) {
+  global $conf;
+
+  // Get select regions and coordinates
+  $regions = new Regions();
+  $selected_regions = (($selected) ? $regions->getAllSelectRegions() : $regions->getAllNonSelectedRegions());
+
+  foreach ($selected_regions as $key => $region) {
+    $kml = new kml($region['name'], $conf->getKmlPath() . $region[file]);
+    $regions_polygons[] = $kml->getRegionPolygons();
+    $data[$key] = array('name' => $region['name'],
+            'color' => $region['color'],
+            'population' => $region['population'],
+            'region_polygons' => $regions_polygons);
+
+    // Empty it, as it have been add to data array
+    $regions_polygons = null;
+  }
+
+  return $data;
+}
+
 // Take action
 try {$action = strtolower(Utils::getParam('action'));} catch (Exception $e) {};
 switch ($action) {
   
   case 'loadcoordinates':
-    // Get select regions and coordinates
-    $regions = new Regions();
-    $selected_regions = $regions->getAllSelectRegions();
-
-    foreach ($selected_regions as $key => $region) {
-      $kml = new kml($region['name'], $conf->getKmlPath() . $region[file]);
-      $regions_polygons[] = $kml->getRegionPolygons();
-      $data[$key] = array('name' => $region['name'],
-                          'color' => $region['color'],
-                          'population' => $region['population'],
-                          'region_polygons' => $regions_polygons);
-
-      // Empty it, as it have been add to data array
-      $regions_polygons = null; 
-    }
-    
-    echo json_encode(array('status' => "selected_regions", 'regions' => $data));
+    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(1)));
     break;
 
+  case "loadnotselectedregions":
+    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(0)));
+    break;
+  
   default:
     echo placeholder($conf);
     break;

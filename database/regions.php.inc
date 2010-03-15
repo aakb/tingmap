@@ -133,6 +133,20 @@ class Regions {
     return $regions;
   }
 
+  public function getAllNonSelectedRegions() {
+    $statement = 'SELECT id,name,file,color,population FROM regions WHERE selected = 0';
+    $query = $this->connection->execute($statement);
+
+    $regions = array();
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $regions[$row['id']] = array('name' => ucfirst($row['name']),
+                                   'file' => $row['file'],
+                                   'color' => $row['color'],
+                                   'population' => $row['population']);
+    }
+    return $regions;
+  }
+
   public function getAllRegions() {
     $statement = 'SELECT * FROM regions';
     $query = $this->connection->execute($statement);

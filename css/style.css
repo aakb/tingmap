@@ -246,24 +246,32 @@ label.check, label.radio {
   margin-top: 6px;
 }
 
-
-/* Front page */
-div#content {
-  width: 900px;
-  margin: 0 auto;
-}
-
+/*************************************
+ * Front end
+ *************************************/
 div#content div#ting_gmap {
   width: 650px;
-  float: left;
 }
 
 div#content div#population {
-  float: right;
-  width: 290px;
   text-align: left;
+  margin-top: 20px;
 }
 
 div#content div#population h2 {
   font-size: 20px;
+}
+
+div#content div#population td {
+  width: 200px;
+}
+
+div#content div#population td.num {
+  width: 100px;
+  text-align: right;
+}
+
+div#content div#population td.pro {
+  width: 50px;
+  text-align: right;
 }

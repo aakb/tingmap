@@ -26,7 +26,12 @@ function placeholder($conf) {
                <div id="content">
                  <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
                  <div id="population">
-                   <h2>Befolkning</h2>
+                   <table border="1">
+                     <tr id="pop-total"><td>Dansker</td><td class="num"></td><td class="pro"></td></tr>
+                     <tr id="pop-selected"><td>Har T!NG</td><td class="num"></td><td class="pro"></td></tr>
+                     <tr id="pop-interested"><td>Interesseret i T!NG</td><td class="num"></td><td class="pro"></td></tr>
+                     <tr id="pop-not-interested"><td>Ikke interesseret i T!NG</td><td class="num"></td><td class="pro"></td></tr>
+                   </table>
                  </div>
                </div>
              </body>
@@ -36,14 +41,32 @@ function placeholder($conf) {
 }
 
 // Encode regions information
-function encodeRegions($selected = 1) {
+function encodeRegions($type) {
   global $conf;
 
-  // Get select regions and coordinates
+  // Load regions from database
   $regions = new Regions();
-  $selected_regions = (($selected) ? $regions->getAllSelectRegions() : $regions->getAllNonSelectedRegions());
+  $current_regions = null;
+  switch ($type) {
+    case REGION_SELECTED:
+      $current_regions = $regions->getAllSelectRegions();
+      break;
 
-  foreach ($selected_regions as $key => $region) {
+    case REGION_INTERESTED:
+      $current_regions = $regions->getAllInterestedRegions();
+      break;
+
+    case REGION_NOT_INTERESTED:
+      $current_regions = $regions->getAllNotInterestedRegions();
+      break;
+
+    case REGION_NOT_SELECTED:
+      $current_regions = $regions->getAllNonSelectedRegions();
+      break;
+  }
+
+  // Load regions polygons and encode them
+  foreach ($current_regions as $key => $region) {
     $kml = new kml($region['name'], $conf->getKmlPath() . $region[file]);
     $regions_polygons[] = $kml->getRegionPolygons();
     $data[$key] = array('name' => $region['name'],
@@ -63,13 +86,26 @@ try {$action = strtolower(Utils::getParam('action'));} catch (Exception $e) {};
 switch ($action) {
   
   case 'loadselectedregions':
-    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(1)));
+    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(REGION_SELECTED)));
     break;
 
-  case "loadnotselectedregions":
-    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(0)));
+  case 'loadnotselectedregions':
+    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(REGION_NOT_SELECTED)));
     break;
-  
+
+  case 'loadpopulation':
+    $regions = new Regions();
+    echo json_encode(array('status' => "population", 'population' => $regions->getPopulation()));
+    break;
+
+  case 'loadinterestedregions':
+    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(REGION_INTERESTED)));
+    break;
+
+  case 'loadnotinterestedregions':
+    echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(REGION_NOT_INTERESTED)));
+    break;
+
   default:
     echo placeholder($conf);
     break;

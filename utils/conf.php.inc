@@ -1,5 +1,10 @@
 <?php
 
+define('REGION_SELECTED', 'region_selected');
+define('REGION_NOT_SELECTED', 'region_not_selected');
+define('REGION_INTERESTED', 'region_interested');
+define('REGION_NOT_INTERESTED', 'region_not_interested');
+
 class Conf {
 
   // Database configuration
@@ -44,6 +49,19 @@ class Conf {
   }
 
   // End google map settings
+
+  // Define region settings
+  private $region_interested_color = '#FFFF00';
+  private $region_not_interested_color = '#FF0000';
+
+  public function getRegionInterestedColor() {
+    return $this->region_interested_color;
+  }
+
+  public function getRegionNotInterestedColor() {
+    return $this->region_not_interested_color;
+  }
+  // End region settings
 
   // Define the system locations
   private $webroot = null;

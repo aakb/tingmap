@@ -1,7 +1,7 @@
 <?php
 
 include_once dirname(__FILE__).'/authorize.php.inc';
-
+include_once dirname(__FILE__).'/../utils/conf.php.inc';
 
 class Regions {
   
@@ -120,29 +120,57 @@ class Regions {
   }
 
   public function getAllSelectRegions() {
-    $statement = 'SELECT id,name,file,color,population FROM regions WHERE selected = 1';
+    $statement = 'SELECT id,name,file,color FROM regions WHERE selected = 1';
     $query = $this->connection->execute($statement);
 
     $regions = array();
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
       $regions[$row['id']] = array('name' => ucfirst($row['name']),
                                    'file' => $row['file'],
-                                   'color' => $row['color'],
-                                   'population' => $row['population']);
+                                   'color' => $row['color']);
+    }
+    return $regions;
+  }
+
+  public function getAllInterestedRegions() {
+    global $conf;
+
+    $statement = 'SELECT id,name,file,color FROM regions WHERE interested = 1';
+    $query = $this->connection->execute($statement);
+
+    $regions = array();
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $regions[$row['id']] = array('name' => ucfirst($row['name']),
+                                   'file' => $row['file'],
+                                   'color' => $conf->getRegionInterestedColor());
+    }
+    return $regions;
+  }
+
+  public function getAllNotInterestedRegions() {
+    global $conf;
+
+    $statement = 'SELECT id,name,file,color FROM regions WHERE not_interested = 1';
+    $query = $this->connection->execute($statement);
+
+    $regions = array();
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $regions[$row['id']] = array('name' => ucfirst($row['name']),
+                                   'file' => $row['file'],
+                                   'color' => $conf->getRegionNotInterestedColor());
     }
     return $regions;
   }
 
   public function getAllNonSelectedRegions() {
-    $statement = 'SELECT id,name,file,color,population FROM regions WHERE selected = 0';
+    $statement = 'SELECT id,name,file,color FROM regions WHERE selected = 0';
     $query = $this->connection->execute($statement);
 
     $regions = array();
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
       $regions[$row['id']] = array('name' => ucfirst($row['name']),
                                    'file' => $row['file'],
-                                   'color' => $row['color'],
-                                   'population' => $row['population']);
+                                   'color' => $row['color']);
     }
     return $regions;
   }
@@ -164,6 +192,49 @@ class Regions {
   public function deselectAllRegions() {
     $statement = 'UPDATE regions SET selected = 0';
     $query = $this->connection->execute($statement);
+  }
+
+  public function getPopulation($all = false) {
+    // Load total population
+    $data = array();
+    $statement = 'SELECT sum(population) AS total FROM regions';
+    $query = $this->connection->execute($statement);
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+    $data['total'] = $row['total'];
+    $query->closeCursor();
+    unset($query); // to avoid 2050 error
+
+    // Load pop in selected regions
+    $data['selected'] = 0;
+    $statement = 'SELECT population FROM regions WHERE selected = 1';
+    $query = $this->connection->execute($statement);
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $data['selected'] += $row['population'];
+    }
+    $query->closeCursor();
+    unset($query); // to avoid 2050 error
+
+    // Load interested pop
+    $data['interested'] = 0;
+    $statement = 'SELECT population FROM regions WHERE interested = 1';
+    $query = $this->connection->execute($statement);
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $data['interested'] += $row['population'];
+    }
+    $query->closeCursor();
+    unset($query); // to avoid 2050 error
+
+    // Load not interested pop
+    $data['not-interested'] = 0;
+    $statement = 'SELECT population FROM regions WHERE not_interested = 1';
+    $query = $this->connection->execute($statement);
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $data['not-interested'] += $row['population'];
+    }
+    $query->closeCursor();
+    unset($query); // to avoid 2050 error
+
+    return $data;
   }
 }
 

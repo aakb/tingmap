@@ -23,8 +23,28 @@ function initialize() {
   map.setMapType(G_PHYSICAL_MAP);
   map.addControl(new GSmallMapControl());
 
-  // Request coordinates
+  // Request selected regions and population
   $.post('index.php', {'action' : 'loadselectedregions'}, tingmapResponse, 'json');
+  $.post('index.php', {'action' : 'loadpopulation'}, populationResponse, 'json');
+
+  // Request interested and not interested regions
+  $.post('index.php', {'action' : 'loadinterestedregions'}, tingmapResponse, 'json');
+  $.post('index.php', {'action' : 'loadnotinterestedregions'}, tingmapResponse, 'json');
+}
+
+function addRegionToMap(polylines, color) {
+  var polygon = new GPolygon.fromEncoded({'polylines': polylines,
+                                                'fill': true,
+                                                'color': color,
+                                                'opacity': 0.4,
+                                                'outline': true});
+        map.addOverlay(polygon);
+        GEvent.addListener(polygon, "mouseover", function() {
+          this.setStrokeStyle({'weight' : 2});
+        });
+        GEvent.addListener(polygon, "mouseout", function() {
+          this.setStrokeStyle({'weight' : 1});
+        });
 }
 
 function tingmapResponse(response) {
@@ -38,35 +58,60 @@ function tingmapResponse(response) {
       
       for (var region_polygons_ID in region_polygons) {
         // Inside region polygon
+        var polylines = new Array();
+
         for (var polygon_ID in region_polygons[region_polygons_ID]) {
           // Inside polygon
           var data = region_polygons[region_polygons_ID][polygon_ID];
-          // Display region on the map
-          map.addOverlay(new GPolygon.fromEncoded({
-                                                  polylines: [
-                                                    {points: data['Points'],
-                                                     levels: data['Levels'],
-                                                     color: "#000000",
-                                                     opacity: 1,
-                                                     weight: 1,
-                                                     numLevels: data['NumLevels'],
-                                                     zoomFactor: data['ZoomFactor']}],
-                                                  fill: true,
-                                                  color: region['color'],
-                                                  opacity: 0.4,
-                                                  outline: true
-                                                }));      
+          // Create ploylines array
+          polylines.push({points: data['Points'],
+                          levels: data['Levels'],
+                          color: "#000000",
+                          opacity: 1,
+                          weight: 1,
+                          numLevels: data['NumLevels'],
+                          zoomFactor: data['ZoomFactor']});
         }
-      }
-      population += parseInt(region['population']);
-    }
 
-    // Insert population
-    $('#population').append('<p>Ting kan bruges af <b>'+addCommas(population)+'</b> borgere.</p>');
+        // Add polylines to map
+        addRegionToMap(polylines, region['color']);
+      }
+    }
   }
   else {
     alert(response['msg']);
   }
+}
+
+function populationResponse(response) {
+  if (response['status'] == 'population') {
+    var data = response['population'];
+
+    // Ting population
+    var total = $('#population #pop-total');
+    $('.num', total).append(addCommas(data['total']));
+    
+    var selected = $('#population #pop-selected')
+    $('.num', selected).append(addCommas(data['selected']));
+    $('.pro', selected).append(pro(data['total'], data['selected']) + '%');
+
+    var interested = $('#population #pop-interested')
+    $('.num', interested).append(addCommas(data['interested']));
+    $('.pro', interested).append(pro(data['total'], data['interested']) + '%');
+
+    var not_interested = $('#population #pop-not-interested');
+    $('.num', not_interested).append(addCommas(data['not-interested']));
+    $('.pro', not_interested).append(pro(data['total'], data['not-interested']) + '%');
+  }
+  else {
+    alert(response['msg']);
+  }
+  
+}
+
+function pro(total, x) {
+  var original = (x / total) * 100;
+  return Math.round(original*10)/10;
 }
 
 // Load google maps

@@ -51,7 +51,7 @@ class Conf {
   // End google map settings
 
   // Define region settings
-  private $region_interested_color = '#FFFF00';
+  private $region_interested_color = '#0000FF';
   private $region_not_interested_color = '#FF0000';
 
   public function getRegionInterestedColor() {

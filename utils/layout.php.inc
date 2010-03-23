@@ -2,19 +2,23 @@
 
 include_once 'conf.php.inc';
 
+define('LAYOUT_FRONT', 'layout_front');
+define('LAYOUT_BACK', 'layout_back');
+
 class Layout {
 
   private $css = array('css/style.css');
   private $js = array('js/curvycorners.js', 'js/jquery-1.3.2.min.js', 'js/utils.js');
   private $content = '';
   private $menu = null;
-
+  private $type = null;
   private $conf = null;
 
-  public function __construct() {
+  public function __construct($type) {
     global $conf;
     $this->conf = $conf;
-
+    $this->type = $type;
+    
     $this->menu = array('Regions' => $this->conf->getWebroot().'/admin/regions.php',
                         'Colors' => $this->conf->getWebroot().'/admin/colors.php',
                         'Information' => $this->conf->getWebroot().'/admin/information.php',

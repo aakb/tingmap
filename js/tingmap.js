@@ -105,9 +105,12 @@ function populationResponse(response) {
     $('.num', interested).append(addCommas(data['interested']));
     $('.pro', interested).append(pro(data['total'], data['interested']) + '%');
 
+    /* LAST MINUTE CHANGE - Calculate this as being remain % */
+    var remain_pro = 100-(pro(data['total'], data['selected']) + pro(data['total'], data['interested']));
+    var remain_num = data['total'] - data['selected'] - data['interested'];
     var not_interested = $('#population #pop-not-interested');
-    $('.num', not_interested).append(addCommas(data['not-interested']));
-    $('.pro', not_interested).append(pro(data['total'], data['not-interested']) + '%');
+    $('.num', not_interested).append(addCommas(remain_num));
+    $('.pro', not_interested).append(remain_pro + '%');
   }
   else {
     alert(response['msg']);

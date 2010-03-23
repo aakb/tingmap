@@ -70,7 +70,7 @@ function configuration_page($conf) {
                 </div>
               </form>';
 
-  $layout = new Layout();
+  $layout = new Layout(LAYOUT_BACK);
   $layout->add_JS_file('js/regions.js');
   $layout->add_content($content);
   echo $layout;

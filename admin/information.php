@@ -10,7 +10,7 @@ function information_page($conf) {
   $content = '<h2>Extened information</h2>
               <p>Add more information to the regions.</p>';
 
-  $layout = new Layout();
+  $layout = new Layout(LAYOUT_BACK);
   $layout->add_JS_file('js/information.js');
   $layout->add_content($content);
   echo $layout;

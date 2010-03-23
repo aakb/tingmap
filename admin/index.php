@@ -55,7 +55,7 @@ catch (Exception $e) {
               </div>';
 
   // Build the page
-  $layout = new Layout();
+  $layout = new Layout(LAYOUT_BACK);
   $layout->add_JS_file('js/login.js');
   $layout->add_content($content);
   $layout->addMenu(array());

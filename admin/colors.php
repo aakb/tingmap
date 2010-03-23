@@ -42,7 +42,7 @@ function colors_page($conf) {
   $content .= '  </div>';
   $content .= '</div>';
 
-  $layout = new Layout();
+  $layout = new Layout(LAYOUT_BACK);
   $layout->add_CSS_file('css/farbtastic.css');
   $layout->add_CSS_file('css/jquery.jgrowl.css');
   $layout->add_JS_file('js/colors.js');

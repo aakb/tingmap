@@ -67,27 +67,73 @@ class Layout {
   }
 
   private function build() {
-    // Main page layout
-    $page = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-             <html xmlns="http://www.w3.org/1999/xhtml">
-             <head>
-               <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-               '. $this->wrap_array_in_element('<link href="'. $this->conf->getWebroot() .'/%s" rel="stylesheet" type="text/css"></link>', $this->css) .'
-               '. $this->wrap_array_in_element('<script type="text/javascript" src="'. $this->conf->getWebroot() .'/%s"></script>', $this->js) .'
-               <title>
-                 TING udbredelseskort
-               </title>
-             </head>
-             <body>
-               <div id="page">
-                  '.$this->renderMenu().'
-                <div id="content">
-                  '.$this->content.'
-                </div>
-               </div>
-             </body>
-             </html>';
+    switch ($this->type) {
 
+      case LAYOUT_BACK:
+        $page = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+                 <html xmlns="http://www.w3.org/1999/xhtml">
+                 <head>
+                   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+                   '. $this->wrap_array_in_element('<link href="'. $this->conf->getWebroot() .'/%s" rel="stylesheet" type="text/css"></link>', $this->css) .'
+                   '. $this->wrap_array_in_element('<script type="text/javascript" src="'. $this->conf->getWebroot() .'/%s"></script>', $this->js) .'
+                   <title>
+                     TING udbredelseskort
+                   </title>
+                 </head>
+                 <body>
+                   <div id="page">
+                      '.$this->renderMenu().'
+                    <div id="content">
+                      '.$this->content.'
+                    </div>
+                   </div>
+                 </body>
+                 </html>';
+         break;
+      
+      case LAYOUT_FRONT:
+        $page = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+                 <html xmlns="http://www.w3.org/1999/xhtml">
+                 <head>
+                   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+                   <script type="text/javascript" src="http://www.google.com/jsapi?key='. $this->conf->gkey() .'"></script>
+                   <script type="text/javascript" src="'. $this->conf->getWebroot() .'/js/tingmap.js"></script>
+                   <script type="text/javascript" src="'. $this->conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
+                   <link href="'. $this->conf->getWebroot() .'/css/reset.css" rel="stylesheet" type="text/css"></link>
+                   <link href="'. $this->conf->getWebroot() .'/css/front.css" rel="stylesheet" type="text/css"></link>
+                   <title>
+                     TING udbredelseskort
+                   </title>
+                 </head>
+                 <body>
+                   <div id="menu">
+                     <div id="menu-inner">
+                       <ul>
+                         <li class="active"><a href="/">Kort</a></li>
+                         <li><a href="">T!NG Concept</a></li>
+                         <li><a href="https://'.$_SERVER['SERVER_NAME'].'/admin">Login</a></li>
+                       </ul>
+                     </div>
+                   </div>
+                   <div id="wrapper" class="clearfix">
+                     <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+                     <div id="population">
+                       <table border="1">
+                         <tr id="pop-total"><td>Indbyggere</td><td class="num"></td><td class="pro"></td></tr>
+                         <tr id="pop-selected"><td>T!NG partnere</td><td class="num"></td><td class="pro"></td></tr>
+                         <tr id="pop-interested"><td>Interesserede</td><td class="num"></td><td class="pro"></td></tr>
+                         <tr id="pop-not-interested"><td>Potentielle</td><td class="num"></td><td class="pro"></td></tr>
+                       </table>
+                     </div>
+                   </div>
+                   <div id="footer">
+                     <div id="footer-inner">
+                     </div>
+                   </div>
+                 </body>
+                 </html>';
+        break;
+    }
     return $page;
   }
 }

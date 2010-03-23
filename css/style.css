@@ -245,33 +245,3 @@ label.check, label.radio {
 #color-box-selection .button-wrapper {
   margin-top: 6px;
 }
-
-/*************************************
- * Front end
- *************************************/
-div#content div#ting_gmap {
-  width: 650px;
-}
-
-div#content div#population {
-  text-align: left;
-  margin-top: 20px;
-}
-
-div#content div#population h2 {
-  font-size: 20px;
-}
-
-div#content div#population td {
-  width: 200px;
-}
-
-div#content div#population td.num {
-  width: 100px;
-  text-align: right;
-}
-
-div#content div#population td.pro {
-  width: 50px;
-  text-align: right;
-}

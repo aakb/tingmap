@@ -6,38 +6,13 @@ global $conf;
 
 // Load classes
 include_once dirname(__FILE__).'/database/regions.php.inc';
+include_once dirname(__FILE__).'/utils/layout.php.inc';
 include_once dirname(__FILE__).'/utils/utils.php.inc';
 include_once dirname(__FILE__).'/utils/kml.php.inc';
 
 function placeholder($conf) {
-  $content = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-             <html xmlns="http://www.w3.org/1999/xhtml">
-             <head>
-               <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-               <script type="text/javascript" src="http://www.google.com/jsapi?key='. $conf->gkey() .'"></script>
-               <script type="text/javascript" src="'. $conf->getWebroot() .'/js/tingmap.js"></script>
-               <script type="text/javascript" src="'. $conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
-               <link href="'. $conf->getWebroot() .'/css/style.css" rel="stylesheet" type="text/css"></link>
-               <title>
-                 TING udbredelseskort
-               </title>
-             </head>
-             <body>
-               <div id="content">
-                 <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
-                 <div id="population">
-                   <table border="1">
-                     <tr id="pop-total"><td>Indbyggere</td><td class="num"></td><td class="pro"></td></tr>
-                     <tr id="pop-selected"><td>T!NG partnere</td><td class="num"></td><td class="pro"></td></tr>
-                     <tr id="pop-interested"><td>Interesserede</td><td class="num"></td><td class="pro"></td></tr>
-                     <tr id="pop-not-interested"><td>Potentielle</td><td class="num"></td><td class="pro"></td></tr>
-                   </table>
-                 </div>
-               </div>
-             </body>
-             </html>';
-
-  echo $content;
+  $layout = new Layout(LAYOUT_FRONT);
+  echo $layout;
 }
 
 // Encode regions information

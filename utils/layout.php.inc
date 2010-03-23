@@ -106,7 +106,7 @@ class Layout {
                      T!NG udbredelseskort
                    </title>
                  </head>
-                 <body>
+                 <body class="black">
                    <div id="menu">
                      <div id="menu-inner">
                        <ul>

@@ -119,8 +119,8 @@ class Layout {
                      <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
                      <div id="population">
                        <table border="1">
-                         <tr id="pop-total"><td>Indbyggere</td><td class="num"></td><td class="pro"></td></tr>
-                         <tr id="pop-selected"><td>T!NG partnere</td><td class="num"></td><td class="pro"></td></tr>
+                         <tr id="pop-total"><td class="none">Indbyggere</td><td class="num none"></td><td class="pro none"></td></tr>
+                         <tr id="pop-selected"><td>T!NG partnere</td><td class="num"></td><td class="pro bold"></td></tr>
                          <tr id="pop-interested"><td>Interesserede</td><td class="num"></td><td class="pro"></td></tr>
                          <tr id="pop-not-interested"><td>Potentielle</td><td class="num"></td><td class="pro"></td></tr>
                        </table>

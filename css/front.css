@@ -71,11 +71,22 @@ body {
 }
 
 #wrapper #population {
+  float: right;
   background-color: #D1E02B;
   width: 290px;
   border-top: 1px dotted #666;
   border-bottom: 1px dotted #666;
   line-height: 1.2em;
+  padding: 8px;
+}
+
+#wrapper #population td.none {
+  border-top: none;
+}
+
+#wrapper #population td {
+  border-top: 1px dotted #222;
+  padding: 8px;
 }
 
 #wrapper #population td.num {
@@ -89,13 +100,19 @@ body {
   padding-left: 8px;
 }
 
+
+#pop-selected .pro {
+  font-weight: bold;
+}
+
 #wrapper #ting_gmap {
   float: left;
 }
 
 #wrapper #population {
-  float: right;
+  padding:
 }
+
 
 #footer {
   color: #FFFFFF;

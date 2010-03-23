@@ -81,6 +81,11 @@ switch ($action) {
     echo json_encode(array('status' => "selected_regions", 'regions' => encodeRegions(REGION_NOT_INTERESTED)));
     break;
 
+  case 'embedded':
+    $layout = new Layout(LAYOUT_EMBEDDED);
+    echo $layout;
+    break;
+
   default:
     echo placeholder($conf);
     break;

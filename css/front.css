@@ -87,6 +87,12 @@ body {
 #wrapper #population td {
   border-top: 1px dotted #222;
   padding: 8px;
+  cursor: default;
+}
+
+#wrapper #population td.num:hover,
+#wrapper #population td.pro:hover {
+  font-weight: bold;
 }
 
 #wrapper #population td.num {
@@ -99,7 +105,6 @@ body {
   text-align: right;
   padding-left: 8px;
 }
-
 
 #pop-selected .pro {
   font-weight: bold;

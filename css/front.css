@@ -78,13 +78,22 @@ body {
 
 #wrapper-inner #population {
   float: right;
-  background-color: #D1E02B;
+  /*background-color: #D1E02B;*/
   width: 290px;
   border-top: 1px dotted #666;
   border-bottom: 1px dotted #666;
   line-height: 1.2em;
   padding: 8px;
 }
+
+#wrapper-inner #population #pop-selected {
+  background-color: #D1E02B;
+}
+
+#wrapper-inner #population #pop-interested {
+  background-color: #7A83D3;
+}
+
 
 #wrapper-inner #population td.none {
   border-top: none;

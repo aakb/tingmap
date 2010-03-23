@@ -8,10 +8,10 @@ define('REGION_NOT_INTERESTED', 'region_not_interested');
 class Conf {
 
   // Database configuration
-  private $database = 'ting_map';
+  private $database = 'tingmap_etek_dk';
   private $server   = 'localhost';
-  private $user     = 'root';
-  private $passwd   = 'Hr1Rod';
+  private $user     = 'tingmap_etek_dk';
+  private $passwd   = '0Gbm5H6s8v5Q84';
 
   public function getDB() {
     return $this->database;

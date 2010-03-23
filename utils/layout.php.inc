@@ -102,7 +102,7 @@ class Layout {
                    <link href="'. $this->conf->getWebroot() .'/css/reset.css" rel="stylesheet" type="text/css"></link>
                    <link href="'. $this->conf->getWebroot() .'/css/front.css" rel="stylesheet" type="text/css"></link>
                    <title>
-                     TING udbredelseskort
+                     T!NG udbredelseskort
                    </title>
                  </head>
                  <body>
@@ -116,14 +116,16 @@ class Layout {
                      </div>
                    </div>
                    <div id="wrapper" class="clearfix">
-                     <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
-                     <div id="population">
-                       <table border="1">
-                         <tr id="pop-total"><td class="none">Indbyggere</td><td class="num none"></td><td class="pro none"></td></tr>
-                         <tr id="pop-selected"><td>T!NG partnere</td><td class="num"></td><td class="pro bold"></td></tr>
-                         <tr id="pop-interested"><td>Interesserede</td><td class="num"></td><td class="pro"></td></tr>
-                         <tr id="pop-not-interested"><td>Potentielle</td><td class="num"></td><td class="pro"></td></tr>
-                       </table>
+                     <div id="wrapper-inner">
+                       <div id="ting_gmap" style="background-color:#eee;width:600px;height:650px;"></div>
+                       <div id="population">
+                         <table border="1">
+                           <tr id="pop-total"><td class="none">Indbyggere</td><td class="num none"></td><td class="pro none"></td></tr>
+                           <tr id="pop-selected"><td>T!NG partnere</td><td class="num"></td><td class="pro bold"></td></tr>
+                           <tr id="pop-interested"><td>Interesserede</td><td class="num"></td><td class="pro"></td></tr>
+                           <tr id="pop-not-interested"><td>Potentielle</td><td class="num"></td><td class="pro"></td></tr>
+                         </table>
+                       </div>
                      </div>
                    </div>
                    <div id="footer">

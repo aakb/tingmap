@@ -3,6 +3,7 @@ body {
   font-family: sans-serif;
   font-size: 0.8em;
   line-height: 1;
+  background-color: #222;
 }
 
 #menu {
@@ -64,13 +65,17 @@ body {
 }
 
 #wrapper {
+  background-color: #FFF;
+}
+
+#wrapper-inner {
   margin: 0 auto;
   padding: 20px 0 0;
   width: 960px;
   padding-bottom: 16px;
 }
 
-#wrapper #population {
+#wrapper-inner #population {
   float: right;
   background-color: #D1E02B;
   width: 290px;
@@ -80,27 +85,27 @@ body {
   padding: 8px;
 }
 
-#wrapper #population td.none {
+#wrapper-inner #population td.none {
   border-top: none;
 }
 
-#wrapper #population td {
+#wrapper-inner #population td {
   border-top: 1px dotted #222;
   padding: 8px;
   cursor: default;
 }
 
-#wrapper #population td.num:hover,
-#wrapper #population td.pro:hover {
+#wrapper-inner #population td.num:hover,
+#wrapper-inner #population td.pro:hover {
   font-weight: bold;
 }
 
-#wrapper #population td.num {
+#wrapper-inner #population td.num {
   width: 100px;
   text-align: right;
 }
 
-#wrapper #population td.pro {
+#wrapper-inner #population td.pro {
   width: 50px;
   text-align: right;
   padding-left: 8px;
@@ -110,11 +115,11 @@ body {
   font-weight: bold;
 }
 
-#wrapper #ting_gmap {
+#wrapper-inner #ting_gmap {
   float: left;
 }
 
-#wrapper #population {
+#wrapper-inner #population {
   padding:
 }
 

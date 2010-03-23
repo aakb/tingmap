@@ -9,6 +9,8 @@ class Regions {
   private $name = null;
   private $file = null;
   private $selected = null;
+  private $interested = null;
+  private $not_interested = null;
   private $color = null;
   private $population = null;
   private $loaded = false;
@@ -60,6 +62,23 @@ class Regions {
     }
   }
 
+  public function interested($val = null) {
+    if ($val != null) {
+      $this->interested = $val;
+    }
+    else {
+      return $this->interested;
+    }
+  }
+
+  public function not_interested($val = null) {
+    if ($val != null) {
+      $this->not_interested = $val;
+    }
+    else {
+      return $this->not_interested;
+    }
+  }
   public function color($val = null) {
     if ($val != null) {
       $this->color = $val;
@@ -89,6 +108,8 @@ class Regions {
       $this->name = $row['name'];
       $this->file = $row['file'];
       $this->selected = $row['selected'];
+      $this->interested = $row['interested'];
+      $this->not_interested = $row['not_interested'];
       $this->color = $row['color'];
       $this->population = $row['population'];
 
@@ -101,8 +122,15 @@ class Regions {
 
   public function save() {
     if ($this->loaded) {
-      $statement = 'UPDATE regions SET selected = :selected WHERE id = :id';
-      $query = $this->connection->execute($statement, array('id' => $this->id, 'selected' => $this->selected));
+      $statement = 'UPDATE regions 
+                    SET selected = :selected,
+                      interested = :interested,
+                  not_interested = :not_interested
+                    WHERE id = :id';
+      $query = $this->connection->execute($statement, array('id' => $this->id, 
+                                                            'selected' => $this->selected,
+                                                            'interested' => $this->interested,
+                                                            'not_interested' => $this->not_interested));
     }
     else {
       throw new Exception('Can\'t save region that have not been loaded! (line: '. __LINE__ .')');
@@ -183,14 +211,16 @@ class Regions {
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
       $regions[$row['id']] = array('name' => ucfirst($row['name']),
                                    'file' => $row['file'],
-                                   'checked' => $row['selected']);
+                                   'selected' => $row['selected'],
+                                   'interested' => $row['interested'],
+                                   'not_interested' => $row['not_interested']);
     }
 
     return $regions;
   }
 
   public function deselectAllRegions() {
-    $statement = 'UPDATE regions SET selected = 0';
+    $statement = 'UPDATE regions SET selected = 0, interested = 0, not_interested = 0';
     $query = $this->connection->execute($statement);
   }
 

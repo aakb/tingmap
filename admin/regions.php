@@ -37,10 +37,14 @@ function configuration_page($conf) {
     }
 
     // Cell
-    $regions_out .= '<td><input type="checkbox" name="'.$id.'" '.(($region['checked']) ? 'checked="yes"' : '' ).'>'.$region['name'].'</input></td>';
-
+    $regions_out .= '<td>
+                       <input type="checkbox" name="'.$id.'#'.REGION_SELECTED.'" '.(($region['selected']) ? 'checked="yes"' : '' ).'></input>
+                       <input type="checkbox" name="'.$id.'#'.REGION_INTERESTED.'" '.(($region['interested']) ? 'checked="yes"' : '' ).'></input>
+                       <input type="checkbox" name="'.$id.'#'.REGION_NOT_INTERESTED.'" '.(($region['not_interested']) ? 'checked="yes"' : '' ).'></input>
+                       '.$region['name'].'
+                     </td>';
     $cell_count++;
-    if ($cell_count == 6) {
+    if ($cell_count == 4) {
       $regions_out .= '</tr>';
       $cell_count = 0;
     }
@@ -49,7 +53,10 @@ function configuration_page($conf) {
   
   // Form wrapper
   $content = '<h2>Regions</h2>
-              <p>Select the regions that should be displayed on the Google map.</p>
+              <p>Select the regions that should be displayed on the Google map.
+                 First row are regions that have T!NG, next row are regions
+                 interested in T!NG. The last row are regions <b>not</b> interested
+                 in T!NG.</p>
               <form id="conf_region" name="conf_region" action="" method="post">
                 <input type="hidden" name="action" id="action" value="updateregions" />
                 ' . $regions_out . '
@@ -64,7 +71,7 @@ function configuration_page($conf) {
               </form>';
 
   $layout = new Layout();
-  $layout->add_JS_file('js/config.js');
+  $layout->add_JS_file('js/regions.js');
   $layout->add_content($content);
   echo $layout;
 }
@@ -77,22 +84,29 @@ switch ($action) {
     $region->deselectAllRegions();
 
     // Set selected regions
-    foreach ($_POST as $id => $state) {
+    foreach ($_POST as $str => $state) {
+      list($id, $type) = split('#', $str);
       if (is_numeric($id)) {
         $region->id($id);
         $region->load();
         if ($state == 'on') {
-          $region->selected(1);
-        }
-        else {
-          $region->selected(0);
+          switch ($type) {
+            case REGION_SELECTED:
+              $region->selected(1);
+              break;
+            case REGION_INTERESTED:
+              $region->interested(1);
+              break;
+            case REGION_NOT_INTERESTED:
+              $region->not_interested(1);
+              break;
+          }
         }
         $region->save();
       }
     }
     echo json_encode(array('status' => 1,
                            'msg' => 'Regions saved'));
-
     break;
 
   default:

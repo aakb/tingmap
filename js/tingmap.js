@@ -22,6 +22,7 @@ function initialize() {
   map.setCenter(new google.maps.LatLng(56.016808, 10.431763), 7);
   map.setMapType(G_PHYSICAL_MAP);
   map.addControl(new GSmallMapControl());
+  map.enableScrollWheelZoom();
 
   // Request selected regions and population
   $.post('index.php', {'action' : 'loadselectedregions'}, tingmapResponse, 'json');
@@ -32,19 +33,24 @@ function initialize() {
   $.post('index.php', {'action' : 'loadnotinterestedregions'}, tingmapResponse, 'json');
 }
 
-function addRegionToMap(polylines, color) {
+function addRegionToMap(polylines, color, name) {
   var polygon = new GPolygon.fromEncoded({'polylines': polylines,
                                                 'fill': true,
                                                 'color': color,
                                                 'opacity': 0.4,
                                                 'outline': true});
-        map.addOverlay(polygon);
-        GEvent.addListener(polygon, "mouseover", function() {
-          this.setStrokeStyle({'weight' : 2});
-        });
-        GEvent.addListener(polygon, "mouseout", function() {
-          this.setStrokeStyle({'weight' : 1});
-        });
+  map.addOverlay(polygon);
+  GEvent.addListener(polygon, "mouseover", function() {
+    this.setStrokeStyle({'weight' : 2});
+    this.setFillStyle({'opacity': 0.6});
+  });
+  GEvent.addListener(polygon, "mouseout", function() {
+    this.setStrokeStyle({'weight' : 1});
+    this.setFillStyle({'opacity': 0.4});
+  });
+  GEvent.addListener(polygon, "click", function() {
+    alert(name);
+  });
 }
 
 function tingmapResponse(response) {
@@ -74,7 +80,7 @@ function tingmapResponse(response) {
         }
 
         // Add polylines to map
-        addRegionToMap(polylines, region['color']);
+        addRegionToMap(polylines, region['color'], region['name']);
       }
     }
   }

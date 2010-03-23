@@ -25,7 +25,7 @@ CREATE TABLE `account` (
 # Dumping data for table 'account'
 #
 
-INSERT INTO account VALUES (1,'cableman','654e199892dc16043fb5b37ab12f049c',10,'Jesper Kristensen',1269271752,1);
+INSERT INTO account VALUES (1,'cableman','654e199892dc16043fb5b37ab12f049c',10,'Jesper Kristensen',1269337344,1);
 INSERT INTO account VALUES (2,'bo','a8f2728a70ba97a9e29a0ee82947de19',10,'Bo Fristed',1261384929,1);
 
 #
@@ -50,7 +50,7 @@ CREATE TABLE `regions` (
 #
 
 INSERT INTO regions VALUES (1,'aabenrå','aabenraa.kml',1,0,0,'#0000FF',59978);
-INSERT INTO regions VALUES (2,'aalborg','aalborg.kml',0,1,0,'#0000FF',197426);
+INSERT INTO regions VALUES (2,'aalborg','aalborg.kml',0,0,0,'#0000FF',197426);
 INSERT INTO regions VALUES (3,'albertslund','albertslund.kml',0,0,0,'#0000FF',27730);
 INSERT INTO regions VALUES (4,'allerød','alleroed.kml',0,0,0,'#0000FF',24089);
 INSERT INTO regions VALUES (5,'assens','assens.kml',0,0,0,'#0000FF',42054);
@@ -144,7 +144,7 @@ INSERT INTO regions VALUES (92,'varde','varde.kml',0,0,0,'#0000FF',50378);
 INSERT INTO regions VALUES (93,'vejen','vejen.kml',0,0,0,'#0000FF',42768);
 INSERT INTO regions VALUES (94,'vejle','vejle.kml',0,0,0,'#0000FF',106383);
 INSERT INTO regions VALUES (95,'vesthimmerlands','vesthimmerlands.kml',0,0,0,'#0000FF',38106);
-INSERT INTO regions VALUES (96,'viborg','viborg.kml',0,0,1,'#0000FF',93310);
+INSERT INTO regions VALUES (96,'viborg','viborg.kml',0,0,0,'#0000FF',93310);
 INSERT INTO regions VALUES (97,'vordingborg','vordingborg.kml',0,0,0,'#0000FF',46319);
 INSERT INTO regions VALUES (98,'ærø','aeroe.kml',0,0,0,'#0000FF',6679);
 INSERT INTO regions VALUES (99,'århus','aarhus.kml',1,0,0,'#0000FF',306650);
@@ -163,5 +163,5 @@ CREATE TABLE `session` (
 # Dumping data for table 'session'
 #
 
-INSERT INTO session VALUES ('17892460164ba78cc81d5b0',1269273552);
+INSERT INTO session VALUES ('5710949664ba88d00166bb',1269342378);
 

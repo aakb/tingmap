@@ -69,19 +69,16 @@ body {
 
 #wrapper {
   background-color: #FFF;
-  padding: 16px;
+  padding: 20px 0 46px;
 }
 
 #wrapper-inner {
   margin: 0 auto;
-  padding: 20px 0 0;
   width: 960px;
-  padding-bottom: 16px;
 }
 
 #wrapper-inner #population {
   float: right;
-  /*background-color: #D1E02B;*/
   width: 290px;
   border-top: 1px dotted #666;
   border-bottom: 1px dotted #666;

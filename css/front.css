@@ -74,7 +74,8 @@ body {
 
 #wrapper-inner {
   margin: 0 auto;
-  width: 960px;
+  padding: 0 8px;
+  width: 944px;
 }
 
 #wrapper-inner #population {

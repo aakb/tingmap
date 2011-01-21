@@ -49,7 +49,7 @@ function addRegionToMap(polylines, color, name) {
     this.setFillStyle({'opacity': 0.4});
   });
   GEvent.addListener(polygon, "click", function() {
-    alert(name);
+    //alert(name);
   });
 }
 

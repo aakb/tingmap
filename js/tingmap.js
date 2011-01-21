@@ -110,7 +110,7 @@ function populationResponse(response) {
     var remain_num = data['total'] - data['selected'] - data['interested'];
     var not_interested = $('#population #pop-not-interested');
     $('.num', not_interested).append(addCommas(remain_num));
-    $('.pro', not_interested).append(remain_pro + '%');
+    $('.pro', not_interested).append((Math.round(remain_pro*10)/10) + '%');
   }
   else {
     alert(response['msg']);

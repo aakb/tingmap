@@ -67,16 +67,40 @@ body {
   color:#FFFFFF;
 }
 
+.embedded #wrapper {
+  background-color: #FFF;
+  padding: 0;
+}
+
+
 #wrapper {
   background-color: #FFF;
   padding: 20px 0 46px;
 }
+
+.embedded #wrapper-inner {
+  margin: 0 auto;
+  padding: 0;
+  width: auto;
+}
+
 
 #wrapper-inner {
   margin: 0 auto;
   padding: 0 8px;
   width: 944px;
 }
+
+.embedded #wrapper-inner #population {
+  float: none;
+  width: 290px;
+  border-top: 1px dotted #666;
+  border-bottom: 1px dotted #666;
+  line-height: 1.2em;
+  padding: 20px 0 0;
+  clear: both;
+}
+
 
 #wrapper-inner #population {
   float: right;
@@ -105,6 +129,11 @@ body {
   cursor: default;
 }
 
+.embedded #wrapper-inner #population td.num:hover,
+.embedded #wrapper-inner #population td.pro:hover {
+  font-weight: normal;
+}
+
 #wrapper-inner #population td.num:hover,
 #wrapper-inner #population td.pro:hover {
   font-weight: bold;
@@ -119,6 +148,10 @@ body {
   width: 50px;
   text-align: right;
   padding-left: 8px;
+}
+
+.embedded #pop-selected .pro {
+  font-weight: normal;
 }
 
 #pop-selected .pro {

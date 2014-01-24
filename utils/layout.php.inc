@@ -97,7 +97,7 @@ class Layout {
                  <html xmlns="http://www.w3.org/1999/xhtml">
                  <head>
                    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-                   <script type="text/javascript" src="http://www.google.com/jsapi?key='. $this->conf->gkey() .'"></script>
+                   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
                    <script type="text/javascript" src="'. $this->conf->getWebroot() .'/js/tingmap.js"></script>
                    <script type="text/javascript" src="'. $this->conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
                    <link href="'. $this->conf->getWebroot() .'/css/reset.css" rel="stylesheet" type="text/css"></link>
@@ -142,7 +142,7 @@ class Layout {
                  <html xmlns="http://www.w3.org/1999/xhtml" class="embedded">
                  <head>
                    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-                   <script type="text/javascript" src="http://www.google.com/jsapi?key='. $this->conf->gkey() .'"></script>
+                   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
                    <script type="text/javascript" src="'. $this->conf->getWebroot() .'/js/tingmap.js"></script>
                    <script type="text/javascript" src="'. $this->conf->getWebroot() .'/js/jquery-1.3.2.min.js"></script>
                    <link href="'. $this->conf->getWebroot() .'/css/reset.css" rel="stylesheet" type="text/css"></link>

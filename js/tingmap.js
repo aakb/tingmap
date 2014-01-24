@@ -18,11 +18,13 @@ function addCommas(nStr) {
 
 // Call this function when the page has been loaded
 function initialize() {
-  map = new google.maps.Map2(document.getElementById("ting_gmap"));
-  map.setCenter(new google.maps.LatLng(56.016808, 10.431763), 7);
-  map.setMapType(G_PHYSICAL_MAP);
-  map.addControl(new GSmallMapControl());
-  map.enableScrollWheelZoom();
+  var mapOptions = {
+    zoom: 7,
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    center: new google.maps.LatLng(56.016808, 10.431763)
+  };
+  
+  map = new google.maps.Map(document.getElementById('ting_gmap'), mapOptions);
 
   // Request selected regions and population
   $.post('index.php', {'action' : 'loadselectedregions'}, tingmapResponse, 'json');
@@ -34,12 +36,23 @@ function initialize() {
 }
 
 function addRegionToMap(polylines, color, name) {
-  var polygon = new GPolygon.fromEncoded({'polylines': polylines,
-                                                'fill': true,
-                                                'color': color,
-                                                'opacity': 0.4,
-                                                'outline': true});
-  map.addOverlay(polygon);
+
+  var polygon = new google.maps.Polygon({
+    strokeColor: '#000000',
+    strokeOpacity: 1,
+    strokeWeight: 1,
+    fillColor: color,
+    fillOpacity: 0.4
+  });
+  
+  for(var i=0; i<polylines.length;i++) {
+    polygon.setPath( google.maps.geometry.encoding.decodePath(polylines[i]['points']) ); 
+  }
+
+  polygon.setMap(map);  
+  
+/*  
+  
   GEvent.addListener(polygon, "mouseover", function() {
     this.setStrokeStyle({'weight' : 2});
     this.setFillStyle({'opacity': 0.6});
@@ -51,6 +64,8 @@ function addRegionToMap(polylines, color, name) {
   GEvent.addListener(polygon, "click", function() {
     //alert(name);
   });
+  
+  */
 }
 
 function tingmapResponse(response) {
@@ -76,11 +91,11 @@ function tingmapResponse(response) {
                           opacity: 1,
                           weight: 1,
                           numLevels: data['NumLevels'],
-                          zoomFactor: data['ZoomFactor']});
+                          zoomFactor: data['ZoomFactor']});                          
         }
 
         // Add polylines to map
-        addRegionToMap(polylines, region['color'], region['name']);
+       addRegionToMap(polylines, region['color'], region['name']);
       }
     }
   }
@@ -124,5 +139,6 @@ function pro(total, x) {
 }
 
 // Load google maps
-google.load("maps", "2.x", {"other_params":"sensor=false"});
-google.setOnLoadCallback(initialize);
+//google.load("maps", "2.x", {"other_params":"sensor=false"});
+//google.setOnLoadCallback(initialize);
+window.onload =initialize;

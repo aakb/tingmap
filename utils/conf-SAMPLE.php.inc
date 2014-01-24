@@ -1,12 +1,17 @@
 <?php
 
+define('REGION_SELECTED', 'region_selected');
+define('REGION_NOT_SELECTED', 'region_not_selected');
+define('REGION_INTERESTED', 'region_interested');
+define('REGION_NOT_INTERESTED', 'region_not_interested');
+
 class Conf {
 
   // Database configuration
-  private $database = 'ting_map';
+  private $database = 'DATABASE';
   private $server   = 'localhost';
-  private $user     = 'root';
-  private $passwd   = 'Hr1Rod';
+  private $user     = 'USER';
+  private $passwd   = 'PASSWORD';
 
   public function getDB() {
     return $this->database;
@@ -33,7 +38,7 @@ class Conf {
   // End file paths
 
   // Google map settings
-  private $gkey = 'ABQIAAAA9R5q17pqStwXYr5_fGwbshSFlJqI8A_ukbJ8NDNja8qdLzJOsxRNd-9GEiAZNWhR5c7j5G-fyr0e6g';
+  private $gkey = 'GOOGLEMAPKEY';
   public function gkey() {
     return $this->gkey;
   }
@@ -44,6 +49,19 @@ class Conf {
   }
 
   // End google map settings
+
+  // Define region settings
+  private $region_interested_color = '#0000FF';
+  private $region_not_interested_color = '#FF0000';
+
+  public function getRegionInterestedColor() {
+    return $this->region_interested_color;
+  }
+
+  public function getRegionNotInterestedColor() {
+    return $this->region_not_interested_color;
+  }
+  // End region settings
 
   // Define the system locations
   private $webroot = null;
@@ -67,7 +85,7 @@ class Conf {
   // End define the system locations
 
   // Cookie config
-  private $cookie_name   = 'tingmap';
+  private $cookie_name   = 'mapcookie';
   private $cookie_expire = 30; // Mins
   public function getCookieName() {
     return $this->cookie_name;

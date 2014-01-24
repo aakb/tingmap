@@ -25,8 +25,7 @@ CREATE TABLE `account` (
 # Dumping data for table 'account'
 #
 
-INSERT INTO account VALUES (1,'cableman','654e199892dc16043fb5b37ab12f049c',10,'Jesper Kristensen',1269337344,1);
-INSERT INTO account VALUES (2,'bo','a8f2728a70ba97a9e29a0ee82947de19',10,'Bo Fristed',1261384929,1);
+INSERT INTO account VALUES (1,'DUMMY','MD5HASH',10,'FULL NAME',0,1);
 
 #
 # Table structure for table 'regions'
@@ -158,10 +157,4 @@ CREATE TABLE `session` (
   `id` text NOT NULL,
   `time` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-#
-# Dumping data for table 'session'
-#
-
-INSERT INTO session VALUES ('5710949664ba88d00166bb',1269342378);
 

@@ -8,10 +8,10 @@ define('REGION_NOT_INTERESTED', 'region_not_interested');
 class Conf {
 
   // Database configuration
-  private $database = 'tingmap_etek_dk';
+  private $database = 'tingmap';
   private $server   = 'localhost';
-  private $user     = 'tingmap_etek_dk';
-  private $passwd   = '0Gbm5H6s8v5Q84';
+  private $user     = 'drupaladmin ';
+  private $passwd   = 'gagger94buv';
 
   public function getDB() {
     return $this->database;

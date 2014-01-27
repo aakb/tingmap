@@ -45,6 +45,7 @@ function addRegionToMap(polylines, color, name) {
   }
 
   var polygon = new google.maps.Polygon({
+    map: map,
     paths: paths,
     strokeColor: '#000000',
     strokeOpacity: 1,
@@ -60,7 +61,7 @@ function addRegionToMap(polylines, color, name) {
     this.setOptions( { strokeWeight: 1, fillOpacity: 0.4});
   });
 
-  polygon.setMap(map);
+  console.log(name);
 }
 
 function tingmapResponse(response) {

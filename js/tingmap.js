@@ -17,14 +17,13 @@ function addCommas(nStr) {
 }
 
 // Call this function when the page has been loaded
-var map;
 function initialize() {
   var mapOptions = {
     zoom: 7,
     mapTypeId: google.maps.MapTypeId.TERRAIN,
     center: new google.maps.LatLng(56.016808, 10.431763)
   };
-  
+
   map = new google.maps.Map(document.getElementById('ting_gmap'), mapOptions);
 
   // Request selected regions and population
@@ -60,8 +59,6 @@ function addRegionToMap(polylines, color, name) {
   google.maps.event.addListener(polygon, "mouseout", function() {
     this.setOptions( { strokeWeight: 1, fillOpacity: 0.4});
   });
-
-  console.log(name);
 }
 
 function tingmapResponse(response) {
@@ -72,7 +69,7 @@ function tingmapResponse(response) {
     for (var region_ID in regions) {
       var region = regions[region_ID];
       var region_polygons = region['region_polygons'];
-      
+
       for (var region_polygons_ID in region_polygons) {
         // Inside region polygon
         var polylines = new Array();
@@ -83,7 +80,6 @@ function tingmapResponse(response) {
           // Create ploylines array
           polylines.push(data['Points']);
         }
-
         // Add polylines to map
         addRegionToMap(polylines, region['color'], region['name']);
       }
@@ -101,7 +97,7 @@ function populationResponse(response) {
     // Ting population
     var total = $('#population #pop-total');
     $('.num', total).append(addCommas(data['total']));
-    
+
     var selected = $('#population #pop-selected')
     $('.num', selected).append(addCommas(data['selected']));
     $('.pro', selected).append(pro(data['total'], data['selected']) + '%');
@@ -120,7 +116,7 @@ function populationResponse(response) {
   else {
     alert(response['msg']);
   }
-  
+
 }
 
 function pro(total, x) {

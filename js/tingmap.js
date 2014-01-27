@@ -38,31 +38,29 @@ function initialize() {
 
 function addRegionToMap(polylines, color, name) {
 
+  var paths = new Array();
+
+  for(var i=0; i<polylines.length;i++) {
+    paths.push(google.maps.geometry.encoding.decodePath(polylines[i]))
+  }
+
   var polygon = new google.maps.Polygon({
+    paths: paths,
     strokeColor: '#000000',
     strokeOpacity: 1,
     strokeWeight: 1,
     fillColor: color,
     fillOpacity: 0.4
   });
-  
-  for(var i=0; i<polylines.length;i++) {
-    polygon.setPath( google.maps.geometry.encoding.decodePath(polylines[i]) ); 
-  }
 
-  polygon.setMap(map);  
-  
- google.maps.event.addListener(polygon, "mouseover", function() {
+  google.maps.event.addListener(polygon, "mouseover", function() {
     this.setOptions( { strokeWeight: 2, fillOpacity: 0.6});
   });
- google.maps.event.addListener(polygon, "mouseout", function() {
+  google.maps.event.addListener(polygon, "mouseout", function() {
     this.setOptions( { strokeWeight: 1, fillOpacity: 0.4});
   });
- /*
- google.maps.event.addListener(polygon, "click", function() {
-    alert(name);
-  });
- */
+
+  polygon.setMap(map);
 }
 
 function tingmapResponse(response) {
@@ -82,11 +80,11 @@ function tingmapResponse(response) {
           // Inside polygon
           var data = region_polygons[region_polygons_ID][polygon_ID];
           // Create ploylines array
-          polylines.push(data['Points']);                          
+          polylines.push(data['Points']);
         }
 
         // Add polylines to map
-       addRegionToMap(polylines, region['color'], region['name']);
+        addRegionToMap(polylines, region['color'], region['name']);
       }
     }
   }

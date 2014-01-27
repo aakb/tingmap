@@ -58,9 +58,11 @@ function addRegionToMap(polylines, color, name) {
  google.maps.event.addListener(polygon, "mouseout", function() {
     this.setOptions( { strokeWeight: 1, fillOpacity: 0.4});
   });
+ /*
  google.maps.event.addListener(polygon, "click", function() {
-    //alert(name);
+    alert(name);
   });
+ */
 }
 
 function tingmapResponse(response) {

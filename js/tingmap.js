@@ -17,6 +17,7 @@ function addCommas(nStr) {
 }
 
 // Call this function when the page has been loaded
+var map;
 function initialize() {
   var mapOptions = {
     zoom: 7,
@@ -46,26 +47,20 @@ function addRegionToMap(polylines, color, name) {
   });
   
   for(var i=0; i<polylines.length;i++) {
-    polygon.setPath( google.maps.geometry.encoding.decodePath(polylines[i]['points']) ); 
+    polygon.setPath( google.maps.geometry.encoding.decodePath(polylines[i]) ); 
   }
 
   polygon.setMap(map);  
   
-/*  
-  
-  GEvent.addListener(polygon, "mouseover", function() {
-    this.setStrokeStyle({'weight' : 2});
-    this.setFillStyle({'opacity': 0.6});
+ google.maps.event.addListener(polygon, "mouseover", function() {
+    this.setOptions( { strokeWeight: 2, fillOpacity: 0.6});
   });
-  GEvent.addListener(polygon, "mouseout", function() {
-    this.setStrokeStyle({'weight' : 1});
-    this.setFillStyle({'opacity': 0.4});
+ google.maps.event.addListener(polygon, "mouseout", function() {
+    this.setOptions( { strokeWeight: 1, fillOpacity: 0.4});
   });
-  GEvent.addListener(polygon, "click", function() {
+ google.maps.event.addListener(polygon, "click", function() {
     //alert(name);
   });
-  
-  */
 }
 
 function tingmapResponse(response) {
@@ -85,13 +80,7 @@ function tingmapResponse(response) {
           // Inside polygon
           var data = region_polygons[region_polygons_ID][polygon_ID];
           // Create ploylines array
-          polylines.push({points: data['Points'],
-                          levels: data['Levels'],
-                          color: "#000000",
-                          opacity: 1,
-                          weight: 1,
-                          numLevels: data['NumLevels'],
-                          zoomFactor: data['ZoomFactor']});                          
+          polylines.push(data['Points']);                          
         }
 
         // Add polylines to map
@@ -138,7 +127,4 @@ function pro(total, x) {
   return Math.round(original*10)/10;
 }
 
-// Load google maps
-//google.load("maps", "2.x", {"other_params":"sensor=false"});
-//google.setOnLoadCallback(initialize);
-window.onload =initialize;
+google.maps.event.addDomListener(window, 'load', initialize);
